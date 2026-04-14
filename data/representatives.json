@@ -1,0 +1,1271 @@
+{
+  "n_clusters": 97,
+  "weights": {
+    "centroid": 0.7,
+    "alphacount": 0.3
+  },
+  "tie_break": "alphacount",
+  "representatives": {
+    "52": {
+      "field_id": "earnings_per_share_estimate_count",
+      "score": 0.7741907238960266,
+      "centroid_sim": 0.9500969052314758,
+      "log_ac_norm": 0.3637428879737854,
+      "alpha_count": 96,
+      "cluster_size": 9,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "35": {
+      "field_id": "volume",
+      "score": 0.9768708944320679,
+      "centroid_sim": 0.9700719118118286,
+      "log_ac_norm": 0.9927352666854858,
+      "alpha_count": 264448,
+      "cluster_size": 7,
+      "meta": {
+        "dataset": "Price Volume Data for Equity",
+        "category": "Price Volume",
+        "subcategory": "Price Volume"
+      }
+    },
+    "56": {
+      "field_id": "sales_min_guidance_quarterly",
+      "score": 0.7664326429367065,
+      "centroid_sim": 0.9234844446182251,
+      "log_ac_norm": 0.39997848868370056,
+      "alpha_count": 152,
+      "cluster_size": 9,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "1": {
+      "field_id": "relative_valuation_rank_derivative",
+      "score": 0.7207024693489075,
+      "centroid_sim": 0.9310814142227173,
+      "log_ac_norm": 0.22981828451156616,
+      "alpha_count": 17,
+      "cluster_size": 5,
+      "meta": {
+        "dataset": "Fundamental Scores",
+        "category": "Model",
+        "subcategory": "Valuation Models"
+      }
+    },
+    "79": {
+      "field_id": "ebitda",
+      "score": 0.9158815145492554,
+      "centroid_sim": 0.9740488529205322,
+      "log_ac_norm": 0.7801578044891357,
+      "alpha_count": 18248,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "57": {
+      "field_id": "gross_income_reported_value",
+      "score": 0.7684187889099121,
+      "centroid_sim": 0.9658244252204895,
+      "log_ac_norm": 0.3078056573867798,
+      "alpha_count": 47,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "72": {
+      "field_id": "eps",
+      "score": 0.8787379264831543,
+      "centroid_sim": 0.925957441329956,
+      "log_ac_norm": 0.7685590982437134,
+      "alpha_count": 15771,
+      "cluster_size": 12,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "49": {
+      "field_id": "est_cashflow_op",
+      "score": 0.840961754322052,
+      "centroid_sim": 0.9539613127708435,
+      "log_ac_norm": 0.577296257019043,
+      "alpha_count": 1422,
+      "cluster_size": 5,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "25": {
+      "field_id": "fn_liab_fair_val_l1_a",
+      "score": 0.9190903902053833,
+      "centroid_sim": 0.9843773245811462,
+      "log_ac_norm": 0.7667540907859802,
+      "alpha_count": 15417,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "21": {
+      "field_id": "fn_line_of_credit_facility_max_borrowing_capacity_q",
+      "score": 0.824088454246521,
+      "centroid_sim": 0.9426705837249756,
+      "log_ac_norm": 0.5473970174789429,
+      "alpha_count": 976,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "18": {
+      "field_id": "fn_new_shares_options_a",
+      "score": 0.8413803577423096,
+      "centroid_sim": 0.9782031774520874,
+      "log_ac_norm": 0.5221270322799683,
+      "alpha_count": 710,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "12": {
+      "field_id": "fn_op_lease_min_pay_due_in_2y_a",
+      "score": 0.8399187326431274,
+      "centroid_sim": 0.9749375581741333,
+      "log_ac_norm": 0.5248748064041138,
+      "alpha_count": 735,
+      "cluster_size": 7,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "17": {
+      "field_id": "fn_oth_comp_fair_value_a",
+      "score": 0.8255027532577515,
+      "centroid_sim": 0.9780560731887817,
+      "log_ac_norm": 0.4695451557636261,
+      "alpha_count": 366,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "15": {
+      "field_id": "fn_oth_income_loss_fx_transaction_and_tax_translation_adj_a",
+      "score": 0.8704367876052856,
+      "centroid_sim": 0.918308675289154,
+      "log_ac_norm": 0.7587357759475708,
+      "alpha_count": 13938,
+      "cluster_size": 8,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "20": {
+      "field_id": "fn_proceeds_from_issuance_of_common_stock_a",
+      "score": 0.7973964810371399,
+      "centroid_sim": 0.9437660574913025,
+      "log_ac_norm": 0.4558674991130829,
+      "alpha_count": 308,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "2": {
+      "field_id": "fn_prepaid_expense_a",
+      "score": 0.8196179270744324,
+      "centroid_sim": 0.9606444835662842,
+      "log_ac_norm": 0.490556001663208,
+      "alpha_count": 477,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Report Footnotes",
+        "category": "Fundamental",
+        "subcategory": "Footnotes"
+      }
+    },
+    "91": {
+      "field_id": "fnd6_cptnewqv1300_atq",
+      "score": 0.8387479782104492,
+      "centroid_sim": 0.9701690673828125,
+      "log_ac_norm": 0.5320987105369568,
+      "alpha_count": 805,
+      "cluster_size": 20,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "96": {
+      "field_id": "fnd6_newqv1300_lcoq",
+      "score": 0.8579921722412109,
+      "centroid_sim": 0.9750926494598389,
+      "log_ac_norm": 0.5847576260566711,
+      "alpha_count": 1562,
+      "cluster_size": 14,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "61": {
+      "field_id": "fnd6_newa1v1300_dpc",
+      "score": 0.824781596660614,
+      "centroid_sim": 0.9566165208816528,
+      "log_ac_norm": 0.517166793346405,
+      "alpha_count": 667,
+      "cluster_size": 7,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "75": {
+      "field_id": "fnd6_cptnewqv1300_nopiq",
+      "score": 0.8456263542175293,
+      "centroid_sim": 0.9731956720352173,
+      "log_ac_norm": 0.5479646325111389,
+      "alpha_count": 983,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "60": {
+      "field_id": "operating_income",
+      "score": 0.9265202283859253,
+      "centroid_sim": 0.9643586874008179,
+      "log_ac_norm": 0.8382303714752197,
+      "alpha_count": 37881,
+      "cluster_size": 5,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "73": {
+      "field_id": "fnd6_mfma2_opeps",
+      "score": 0.8536296486854553,
+      "centroid_sim": 0.9848373532295227,
+      "log_ac_norm": 0.5474783182144165,
+      "alpha_count": 977,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "77": {
+      "field_id": "receivable",
+      "score": 0.8873212337493896,
+      "centroid_sim": 0.9620778560638428,
+      "log_ac_norm": 0.7128892540931702,
+      "alpha_count": 7830,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "65": {
+      "field_id": "retained_earnings",
+      "score": 0.8780530095100403,
+      "centroid_sim": 0.9515914916992188,
+      "log_ac_norm": 0.7064632177352905,
+      "alpha_count": 7222,
+      "cluster_size": 7,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "40": {
+      "field_id": "sales",
+      "score": 0.9341512322425842,
+      "centroid_sim": 0.9804201126098633,
+      "log_ac_norm": 0.8261905312538147,
+      "alpha_count": 32558,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "71": {
+      "field_id": "fnd6_mfmq_cshprq",
+      "score": 0.8589835166931152,
+      "centroid_sim": 0.9856855869293213,
+      "log_ac_norm": 0.5633452534675598,
+      "alpha_count": 1193,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "23": {
+      "field_id": "fnd6_currencya_curcd",
+      "score": 0.8820902109146118,
+      "centroid_sim": 0.9919416904449463,
+      "log_ac_norm": 0.6257699728012085,
+      "alpha_count": 2617,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "90": {
+      "field_id": "fnd6_dcvt",
+      "score": 0.8538062572479248,
+      "centroid_sim": 0.9874331951141357,
+      "log_ac_norm": 0.5420100092887878,
+      "alpha_count": 912,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "89": {
+      "field_id": "fnd6_dlto",
+      "score": 0.8673297166824341,
+      "centroid_sim": 0.9769537448883057,
+      "log_ac_norm": 0.6115401387214661,
+      "alpha_count": 2188,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "87": {
+      "field_id": "fnd6_dd3",
+      "score": 0.8424763679504395,
+      "centroid_sim": 0.9583770036697388,
+      "log_ac_norm": 0.5720416903495789,
+      "alpha_count": 1331,
+      "cluster_size": 9,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "37": {
+      "field_id": "fnd6_newa1v1300_aocipen",
+      "score": 0.818501353263855,
+      "centroid_sim": 0.969670295715332,
+      "log_ac_norm": 0.4657740294933319,
+      "alpha_count": 349,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "85": {
+      "field_id": "fnd6_newa1v1300_aul3",
+      "score": 0.8076710104942322,
+      "centroid_sim": 0.9593377709388733,
+      "log_ac_norm": 0.4537818431854248,
+      "alpha_count": 300,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "84": {
+      "field_id": "fnd6_newqv1300_aqpl1q",
+      "score": 0.8284977674484253,
+      "centroid_sim": 0.9886404275894165,
+      "log_ac_norm": 0.4548315107822418,
+      "alpha_count": 304,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "67": {
+      "field_id": "fnd6_mfmq_cheq",
+      "score": 0.833896279335022,
+      "centroid_sim": 0.9760755300521851,
+      "log_ac_norm": 0.5021446347236633,
+      "alpha_count": 552,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "41": {
+      "field_id": "fnd6_newqv1300_cogsq",
+      "score": 0.8335405588150024,
+      "centroid_sim": 0.9860972166061401,
+      "log_ac_norm": 0.4775751531124115,
+      "alpha_count": 405,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "76": {
+      "field_id": "fnd6_mfma1_csho",
+      "score": 0.8332808017730713,
+      "centroid_sim": 0.9596377611160278,
+      "log_ac_norm": 0.5384478569030762,
+      "alpha_count": 872,
+      "cluster_size": 5,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "74": {
+      "field_id": "fnd6_newa2v1300_ni",
+      "score": 0.8545976281166077,
+      "centroid_sim": 0.9729182720184326,
+      "log_ac_norm": 0.5785161256790161,
+      "alpha_count": 1444,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "66": {
+      "field_id": "fnd6_newa2v1300_oancf",
+      "score": 0.8430981040000916,
+      "centroid_sim": 0.9893444776535034,
+      "log_ac_norm": 0.5018565654754639,
+      "alpha_count": 550,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "34": {
+      "field_id": "goodwill",
+      "score": 0.9051869511604309,
+      "centroid_sim": 0.9707025289535522,
+      "log_ac_norm": 0.7523172497749329,
+      "alpha_count": 12857,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "81": {
+      "field_id": "fnd6_newqv1300_ibq",
+      "score": 0.8270895481109619,
+      "centroid_sim": 0.9761343002319336,
+      "log_ac_norm": 0.4793184697628021,
+      "alpha_count": 414,
+      "cluster_size": 11,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "53": {
+      "field_id": "fnd6_newa2v1300_rdipeps",
+      "score": 0.8678420186042786,
+      "centroid_sim": 0.9620355367660522,
+      "log_ac_norm": 0.6480572819709778,
+      "alpha_count": 3464,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "50": {
+      "field_id": "fnd6_optca",
+      "score": 0.8280033469200134,
+      "centroid_sim": 0.9312419295310974,
+      "log_ac_norm": 0.5871133208274841,
+      "alpha_count": 1609,
+      "cluster_size": 9,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "30": {
+      "field_id": "fnd6_optdr",
+      "score": 0.8337146043777466,
+      "centroid_sim": 0.9595237374305725,
+      "log_ac_norm": 0.5401598215103149,
+      "alpha_count": 891,
+      "cluster_size": 5,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "51": {
+      "field_id": "fnd6_optosby",
+      "score": 0.84425950050354,
+      "centroid_sim": 0.9798218011856079,
+      "log_ac_norm": 0.5279476046562195,
+      "alpha_count": 764,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "48": {
+      "field_id": "fnd6_prcl",
+      "score": 0.8267303705215454,
+      "centroid_sim": 0.9556372165679932,
+      "log_ac_norm": 0.5259478688240051,
+      "alpha_count": 745,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "62": {
+      "field_id": "fnd6_tstkc",
+      "score": 0.8207337260246277,
+      "centroid_sim": 0.9602986574172974,
+      "log_ac_norm": 0.4950823187828064,
+      "alpha_count": 505,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "93": {
+      "field_id": "fnd6_txfo",
+      "score": 0.8340556621551514,
+      "centroid_sim": 0.9468369483947754,
+      "log_ac_norm": 0.5708993077278137,
+      "alpha_count": 1312,
+      "cluster_size": 9,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "94": {
+      "field_id": "fnd6_txdbclq",
+      "score": 0.8704495429992676,
+      "centroid_sim": 0.9731194972991943,
+      "log_ac_norm": 0.6308863759040833,
+      "alpha_count": 2791,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "0": {
+      "field_id": "fscore_bfl_growth",
+      "score": 0.7246112823486328,
+      "centroid_sim": 0.9504822492599487,
+      "log_ac_norm": 0.19757907092571259,
+      "alpha_count": 11,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Fundamental Scores",
+        "category": "Model",
+        "subcategory": "Valuation Models"
+      }
+    },
+    "59": {
+      "field_id": "sales_estimate_maximum",
+      "score": 0.7545380592346191,
+      "centroid_sim": 0.9834316372871399,
+      "log_ac_norm": 0.220453143119812,
+      "alpha_count": 15,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "11": {
+      "field_id": "historical_volatility_180",
+      "score": 0.8823697566986084,
+      "centroid_sim": 0.9774901270866394,
+      "log_ac_norm": 0.660422146320343,
+      "alpha_count": 4047,
+      "cluster_size": 8,
+      "meta": {
+        "dataset": "Volatility Data",
+        "category": "Option",
+        "subcategory": "Option Volatility"
+      }
+    },
+    "10": {
+      "field_id": "implied_volatility_call_120",
+      "score": 0.89847731590271,
+      "centroid_sim": 0.9761645793914795,
+      "log_ac_norm": 0.7172070145606995,
+      "alpha_count": 8267,
+      "cluster_size": 14,
+      "meta": {
+        "dataset": "Volatility Data",
+        "category": "Option",
+        "subcategory": "Option Volatility"
+      }
+    },
+    "54": {
+      "field_id": "min_adjusted_net_income_guidance",
+      "score": 0.8146741986274719,
+      "centroid_sim": 0.9474047422409058,
+      "log_ac_norm": 0.5049695372581482,
+      "alpha_count": 572,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "55": {
+      "field_id": "operating_profit_before_depr_amort_max_guidance_qtr",
+      "score": 0.7779794931411743,
+      "centroid_sim": 0.9651957750320435,
+      "log_ac_norm": 0.34114158153533936,
+      "alpha_count": 72,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "58": {
+      "field_id": "sales_estimate_count_quarterly",
+      "score": 0.8160824775695801,
+      "centroid_sim": 0.9716955423355103,
+      "log_ac_norm": 0.45298540592193604,
+      "alpha_count": 297,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "45": {
+      "field_id": "net_debt_amount",
+      "score": 0.7548794746398926,
+      "centroid_sim": 0.9730675220489502,
+      "log_ac_norm": 0.24577394127845764,
+      "alpha_count": 21,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "6": {
+      "field_id": "option_breakeven_120",
+      "score": 0.8226432204246521,
+      "centroid_sim": 0.9638442993164062,
+      "log_ac_norm": 0.4931739568710327,
+      "alpha_count": 493,
+      "cluster_size": 24,
+      "meta": {
+        "dataset": "Options Analytics",
+        "category": "Option",
+        "subcategory": "Option Analytics"
+      }
+    },
+    "22": {
+      "field_id": "pv13_reveremap",
+      "score": 0.838986873626709,
+      "centroid_sim": 0.9298616647720337,
+      "log_ac_norm": 0.6269457340240479,
+      "alpha_count": 2656,
+      "cluster_size": 20,
+      "meta": {
+        "dataset": "Relationship Data for Equity",
+        "category": "Price Volume",
+        "subcategory": "Relationship"
+      }
+    },
+    "19": {
+      "field_id": "rp_css_business",
+      "score": 0.8358433246612549,
+      "centroid_sim": 0.922518253326416,
+      "log_ac_norm": 0.6336019039154053,
+      "alpha_count": 2888,
+      "cluster_size": 60,
+      "meta": {
+        "dataset": "Ravenpack News Data",
+        "category": "News",
+        "subcategory": "News Sentiment"
+      }
+    },
+    "42": {
+      "field_id": "sga_expense",
+      "score": 0.8871961236000061,
+      "centroid_sim": 0.9617167711257935,
+      "log_ac_norm": 0.7133145928382874,
+      "alpha_count": 7872,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "38": {
+      "field_id": "total_assets_reported_value",
+      "score": 0.7868666648864746,
+      "centroid_sim": 0.978838324546814,
+      "log_ac_norm": 0.3389327824115753,
+      "alpha_count": 70,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "5": {
+      "field_id": "snt_buzz_bfl",
+      "score": 0.8492850661277771,
+      "centroid_sim": 0.9225081205368042,
+      "log_ac_norm": 0.6784313321113586,
+      "alpha_count": 5076,
+      "cluster_size": 12,
+      "meta": {
+        "dataset": "Sentiment Data for Equity",
+        "category": "Social Media",
+        "subcategory": "Social Media"
+      }
+    },
+    "8": {
+      "field_id": "systematic_risk_last_60_days",
+      "score": 0.8588373064994812,
+      "centroid_sim": 0.989213228225708,
+      "log_ac_norm": 0.5546267628669739,
+      "alpha_count": 1069,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Systematic Risk Metrics",
+        "category": "Model",
+        "subcategory": "Risk Models"
+      }
+    },
+    "9": {
+      "field_id": "unsystematic_risk_last_360_days",
+      "score": 0.9049733877182007,
+      "centroid_sim": 0.9890909194946289,
+      "log_ac_norm": 0.7086991667747498,
+      "alpha_count": 7428,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Systematic Risk Metrics",
+        "category": "Model",
+        "subcategory": "Risk Models"
+      }
+    },
+    "92": {
+      "field_id": "fnd6_drlt",
+      "score": 0.8980123996734619,
+      "centroid_sim": 0.9748797416687012,
+      "log_ac_norm": 0.7186554670333862,
+      "alpha_count": 8419,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "39": {
+      "field_id": "fnd6_newqv1300_esoprq",
+      "score": 0.8519811630249023,
+      "centroid_sim": 0.9823086261749268,
+      "log_ac_norm": 0.5478838086128235,
+      "alpha_count": 982,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "69": {
+      "field_id": "fnd6_fatl",
+      "score": 0.8727888464927673,
+      "centroid_sim": 0.9599394798278809,
+      "log_ac_norm": 0.6694373488426208,
+      "alpha_count": 4533,
+      "cluster_size": 7,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "86": {
+      "field_id": "fnd6_ivaco",
+      "score": 0.8909323215484619,
+      "centroid_sim": 0.969382643699646,
+      "log_ac_norm": 0.707881510257721,
+      "alpha_count": 7352,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "83": {
+      "field_id": "fnd6_ivst",
+      "score": 0.8367089033126831,
+      "centroid_sim": 0.989387035369873,
+      "log_ac_norm": 0.4804598093032837,
+      "alpha_count": 420,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "95": {
+      "field_id": "fnd6_loxdr",
+      "score": 0.8746132850646973,
+      "centroid_sim": 0.9931294918060303,
+      "log_ac_norm": 0.5980755686759949,
+      "alpha_count": 1847,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "88": {
+      "field_id": "revenue",
+      "score": 0.9047380685806274,
+      "centroid_sim": 0.9739183187484741,
+      "log_ac_norm": 0.7433176636695862,
+      "alpha_count": 11481,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "78": {
+      "field_id": "fnd6_mibt",
+      "score": 0.8316515684127808,
+      "centroid_sim": 0.9705466032028198,
+      "log_ac_norm": 0.5075632333755493,
+      "alpha_count": 591,
+      "cluster_size": 5,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "46": {
+      "field_id": "fnd6_mrc5",
+      "score": 0.8624390959739685,
+      "centroid_sim": 0.9785022139549255,
+      "log_ac_norm": 0.5916251540184021,
+      "alpha_count": 1703,
+      "cluster_size": 6,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "70": {
+      "field_id": "fnd6_newqv1300_acomincq",
+      "score": 0.8555330634117126,
+      "centroid_sim": 0.977389395236969,
+      "log_ac_norm": 0.5712015628814697,
+      "alpha_count": 1317,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "44": {
+      "field_id": "fnd6_newa2v1300_spceeps",
+      "score": 0.8145391941070557,
+      "centroid_sim": 0.9729796648025513,
+      "log_ac_norm": 0.4448448121547699,
+      "alpha_count": 268,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "82": {
+      "field_id": "fnd6_newqv1300_altoq",
+      "score": 0.8287414312362671,
+      "centroid_sim": 0.9757350087165833,
+      "log_ac_norm": 0.48575645685195923,
+      "alpha_count": 449,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "80": {
+      "field_id": "fnd6_newqv1300_ciq",
+      "score": 0.807440996170044,
+      "centroid_sim": 0.9449291825294495,
+      "log_ac_norm": 0.4866350591182709,
+      "alpha_count": 454,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "68": {
+      "field_id": "fnd6_newqv1300_ciotherq",
+      "score": 0.8350909948348999,
+      "centroid_sim": 0.9707876443862915,
+      "log_ac_norm": 0.5184654593467712,
+      "alpha_count": 678,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "26": {
+      "field_id": "fnd6_newqv1300_glceeps12",
+      "score": 0.7591801285743713,
+      "centroid_sim": 0.9735187292098999,
+      "log_ac_norm": 0.2590566873550415,
+      "alpha_count": 25,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "64": {
+      "field_id": "fnd6_txtubposdec",
+      "score": 0.836941659450531,
+      "centroid_sim": 0.9693231582641602,
+      "log_ac_norm": 0.5280514359474182,
+      "alpha_count": 765,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "63": {
+      "field_id": "fnd6_xacc",
+      "score": 0.850602924823761,
+      "centroid_sim": 0.9739999771118164,
+      "log_ac_norm": 0.5626765489578247,
+      "alpha_count": 1183,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "Company Fundamental Data for Equity",
+        "category": "Fundamental",
+        "subcategory": "Fundamental Data"
+      }
+    },
+    "4": {
+      "field_id": "forward_price_10",
+      "score": 0.8324581384658813,
+      "centroid_sim": 0.9557980298995972,
+      "log_ac_norm": 0.5446649789810181,
+      "alpha_count": 943,
+      "cluster_size": 12,
+      "meta": {
+        "dataset": "Options Analytics",
+        "category": "Option",
+        "subcategory": "Option Analytics"
+      }
+    },
+    "43": {
+      "field_id": "free_cash_flow_reported_value",
+      "score": 0.7543561458587646,
+      "centroid_sim": 0.965341329574585,
+      "log_ac_norm": 0.26205748319625854,
+      "alpha_count": 26,
+      "cluster_size": 3,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "29": {
+      "field_id": "news_mins_5_pct_dn",
+      "score": 0.8353774547576904,
+      "centroid_sim": 0.9590426683425903,
+      "log_ac_norm": 0.5468252897262573,
+      "alpha_count": 969,
+      "cluster_size": 12,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "31": {
+      "field_id": "news_mov_vol",
+      "score": 0.8219628930091858,
+      "centroid_sim": 0.928639829158783,
+      "log_ac_norm": 0.5730500221252441,
+      "alpha_count": 1348,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "33": {
+      "field_id": "news_eod_close",
+      "score": 0.8330530524253845,
+      "centroid_sim": 0.9194648265838623,
+      "log_ac_norm": 0.6314256191253662,
+      "alpha_count": 2810,
+      "cluster_size": 9,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "28": {
+      "field_id": "news_pct_120min",
+      "score": 0.8475656509399414,
+      "centroid_sim": 0.9769854545593262,
+      "log_ac_norm": 0.545586109161377,
+      "alpha_count": 954,
+      "cluster_size": 8,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "24": {
+      "field_id": "news_pe_ratio",
+      "score": 0.8523703813552856,
+      "centroid_sim": 0.9483582973480225,
+      "log_ac_norm": 0.6283987164497375,
+      "alpha_count": 2705,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "36": {
+      "field_id": "news_all_vwap",
+      "score": 0.8503903746604919,
+      "centroid_sim": 0.9683777093887329,
+      "log_ac_norm": 0.5750866532325745,
+      "alpha_count": 1383,
+      "cluster_size": 5,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "16": {
+      "field_id": "news_high_exc_stddev",
+      "score": 0.8233736753463745,
+      "centroid_sim": 0.9366616606712341,
+      "log_ac_norm": 0.5590351819992065,
+      "alpha_count": 1130,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "7": {
+      "field_id": "parkinson_volatility_120",
+      "score": 0.8793091177940369,
+      "centroid_sim": 0.9786341190338135,
+      "log_ac_norm": 0.6475508213043213,
+      "alpha_count": 3442,
+      "cluster_size": 8,
+      "meta": {
+        "dataset": "Volatility Data",
+        "category": "Option",
+        "subcategory": "Option Volatility"
+      }
+    },
+    "14": {
+      "field_id": "pcr_oi_270",
+      "score": 0.8980157375335693,
+      "centroid_sim": 0.9710638523101807,
+      "log_ac_norm": 0.7275702357292175,
+      "alpha_count": 9418,
+      "cluster_size": 12,
+      "meta": {
+        "dataset": "Options Analytics",
+        "category": "Option",
+        "subcategory": "Option Analytics"
+      }
+    },
+    "13": {
+      "field_id": "pcr_vol_360",
+      "score": 0.8338679075241089,
+      "centroid_sim": 0.985899806022644,
+      "log_ac_norm": 0.4791266620159149,
+      "alpha_count": 413,
+      "cluster_size": 12,
+      "meta": {
+        "dataset": "Options Analytics",
+        "category": "Option",
+        "subcategory": "Option Analytics"
+      }
+    },
+    "32": {
+      "field_id": "rel_num_part",
+      "score": 0.8553166389465332,
+      "centroid_sim": 0.9324802160263062,
+      "log_ac_norm": 0.6752684116363525,
+      "alpha_count": 4878,
+      "cluster_size": 8,
+      "meta": {
+        "dataset": "Relationship Data for Equity",
+        "category": "Price Volume",
+        "subcategory": "Relationship"
+      }
+    },
+    "47": {
+      "field_id": "net_profit_adjusted_value",
+      "score": 0.7607197165489197,
+      "centroid_sim": 0.9757181406021118,
+      "log_ac_norm": 0.2590566873550415,
+      "alpha_count": 25,
+      "cluster_size": 2,
+      "meta": {
+        "dataset": "Analyst Estimate Data for Equity",
+        "category": "Analyst",
+        "subcategory": "Analyst Estimates"
+      }
+    },
+    "27": {
+      "field_id": "news_max_up_ret",
+      "score": 0.8398969173431396,
+      "centroid_sim": 0.9567483067512512,
+      "log_ac_norm": 0.5672436952590942,
+      "alpha_count": 1253,
+      "cluster_size": 4,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    },
+    "3": {
+      "field_id": "news_mins_20_chg",
+      "score": 0.8544617891311646,
+      "centroid_sim": 0.9596785306930542,
+      "log_ac_norm": 0.608955979347229,
+      "alpha_count": 2118,
+      "cluster_size": 7,
+      "meta": {
+        "dataset": "US News Data",
+        "category": "News",
+        "subcategory": "News"
+      }
+    }
+  }
+}

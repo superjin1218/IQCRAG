@@ -1,0 +1,94 @@
+# Field Graph 파이프라인 설정
+
+# 입력 데이터
+input:
+  all_fields_csv: ../references/wq_brain_all_fields.csv
+  usable_fields_json: ../references/usable_fields.json
+
+# 출력 경로 (field_graph 디렉토리 기준 상대 경로)
+paths:
+  data_dir: data
+  output_dir: output
+  logs_dir: logs
+  progress_file: logs/progress.json
+  corpus_file: data/field_corpus.jsonl
+  embeddings_file: data/embeddings.npy
+  field_ids_file: data/field_ids.json
+  chroma_dir: data/chroma_db
+  clusters_file: data/clusters.json
+  representatives_file: data/representatives.json
+  probe_alphas_file: data/probe_alphas.jsonl
+  step4_results_file: data/step4_results.json
+  pair_results_file: data/pair_results.parquet
+  graph_pickle: output/field_graph.gpickle
+  graph_html: output/field_graph.html
+
+# 임베딩 모델
+embedding:
+  model: BAAI/bge-m3
+  # 대안(경량): intfloat/multilingual-e5-small
+  batch_size: 32
+  normalize: true
+
+# 후보 필드 필터링 (너무 많은 필드는 다룰 수 없음)
+filter:
+  use_usable_fields_only: true  # usable_fields.json 에 있는 것만
+  min_coverage: 0.0             # coverage 필터 없음
+  min_alpha_count: 0            # alphaCount 이 값 이상만
+
+# 클러스터링 (HDBSCAN)
+cluster:
+  algorithm: hdbscan
+  target_clusters: 100
+  min_cluster_size: 5           # 이보다 작으면 노이즈 취급
+  min_samples: 2
+  cluster_selection_epsilon: 0.0
+  metric: euclidean             # 임베딩 정규화 후 euclidean ≈ cosine
+
+# 대표 필드 선정 (하이브리드)
+representative:
+  centroid_weight: 0.7          # centroid 근접도 가중
+  alphacount_weight: 0.3        # log alphaCount 가중
+  tie_break: alphacount         # 동점 시 alphaCount 큰 것
+
+# Probe Alpha
+probe:
+  # subtract: rank(X) - rank(Y) — 유사도 측정 (유사 → 작음)
+  # add:      rank(X) + rank(Y) — 결합 효과 측정
+  template: subtract
+  lookback: 20                  # ts_backfill lookback
+  # 수식 템플릿 (X, Y 자리는 {x}, {y})
+  subtract_expr: "subtract(rank(ts_backfill({x}, 20)), rank(ts_backfill({y}, 20)))"
+  add_expr: "add(rank(ts_backfill({x}, 20)), rank(ts_backfill({y}, 20)))"
+
+# Step 4 가정 검증
+step4:
+  intra_samples: 50             # 같은 클러스터 내부 쌍
+  inter_samples: 50             # 다른 클러스터 간 쌍
+  min_intra_similarity: 0.5     # 통과 기준: intra 평균 (1 - |sharpe|) ≥ 0.5
+  max_inter_similarity: 0.3     # 통과 기준: inter 평균 ≤ 0.3
+  seed: 42
+
+# 본 시뮬
+main_sim:
+  max_pairs: 5000               # 안전 상한 (100 reps → 4950 쌍)
+  concurrent: 4                 # 동시 시뮬 수 (WQB 슬롯 한도 감안)
+  skip_if_exists: true          # 이미 결과 있는 쌍은 스킵
+
+# 그래프 빌드
+graph:
+  intra_edge_color: "#888888"
+  inter_edge_color_synergy: "#00aa00"
+  inter_edge_color_redundant: "#aa0000"
+  min_edge_weight: 0.1          # 이보다 약한 엣지는 그리지 않음
+
+# WQB 시뮬레이션 설정
+wqb:
+  region: USA
+  universe: TOP3000
+  delay: 1
+  decay: 4
+  neutralization: SUBINDUSTRY
+  truncation: 0.08
+  max_wait_sec: 600
+  env_file: ../.env

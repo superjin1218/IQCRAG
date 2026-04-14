@@ -1,0 +1,136 @@
+{
+  "version": "2.0",
+  "description": "논문 기반 레짐 적응형 알파 템플릿 — alphaCount 상위 필드 + 학술 검증 팩터",
+
+  "proven_alphas": {
+    "earnings_fundamental": [
+      {"id": "ef_01", "expr": "rank(operating_income/enterprise_value)", "category": "value", "paper": "Basu1977", "desc": "Operating Earnings Yield"},
+      {"id": "ef_02", "expr": "group_neutralize(rank(ebit/enterprise_value), sector)", "category": "value", "paper": "Basu1977", "desc": "EBIT Yield 섹터중립"},
+      {"id": "ef_03", "expr": "rank(ebitda/enterprise_value)", "category": "value", "paper": "Basu1977", "desc": "EBITDA Yield"},
+      {"id": "ef_04", "expr": "rank(sales_growth)", "category": "growth", "paper": "NovyMarx2013", "desc": "매출 성장률"},
+      {"id": "ef_05", "expr": "rank(return_equity)", "category": "quality", "paper": "NovyMarx2013", "desc": "ROE"},
+      {"id": "ef_06", "expr": "rank(return_assets)", "category": "quality", "paper": "NovyMarx2013", "desc": "ROA"},
+      {"id": "ef_07", "expr": "group_neutralize(rank(revenue/enterprise_value), sector)", "category": "value", "paper": "NovyMarx2013", "desc": "Revenue Yield 섹터중립"},
+      {"id": "ef_08", "expr": "rank(-ts_delta(operating_expense/revenue, 252))", "category": "quality", "paper": "Piotroski2000", "desc": "Operating Efficiency 개선"},
+      {"id": "ef_09", "expr": "rank(operating_income/sales)", "category": "quality", "paper": "NovyMarx2013", "desc": "Operating Margin"},
+      {"id": "ef_10", "expr": "rank(ts_delta(return_assets, 252))", "category": "quality", "paper": "Piotroski2000", "desc": "ROA Improvement"},
+      {"id": "ef_11", "expr": "rank(eps/enterprise_value)", "category": "value", "paper": "Basu1977", "desc": "EPS Yield"},
+      {"id": "ef_12", "expr": "group_neutralize(rank(pretax_income/enterprise_value), sector)", "category": "value", "paper": "Basu1977", "desc": "Pretax Income Yield"}
+    ],
+    "analyst_revision": [
+      {"id": "ar_01", "expr": "rank(anl4_basicconqfv110_pu - anl4_basicconqfv110_down)", "category": "analyst", "paper": "Chan1996", "desc": "Estimate Revision Net"},
+      {"id": "ar_02", "expr": "rank(divide(anl4_basicconqfv110_pu - anl4_basicconqfv110_down, anl4_basicconqfv110_numest))", "category": "analyst", "paper": "Chan1996", "desc": "Revision Breadth"},
+      {"id": "ar_03", "expr": "rank(ts_delta(anl4_basicconqfv110_mean, 20))", "category": "analyst", "paper": "Givoly1979", "desc": "Consensus Mean 변화"},
+      {"id": "ar_04", "expr": "rank(ts_decay_linear(anl4_basicconqfv110_pu - anl4_basicconqfv110_down, 60))", "category": "analyst", "paper": "Bernard1989", "desc": "Revision Drift 60일"},
+      {"id": "ar_05", "expr": "rank(-divide(anl4_basicconqfv110_high - anl4_basicconqfv110_low, abs(anl4_basicconqfv110_mean)))", "category": "analyst", "paper": "Diether2002", "desc": "Low Forecast Dispersion"},
+      {"id": "ar_06", "expr": "group_neutralize(rank(anl4_basicconqfv110_pu - anl4_basicconqfv110_down), sector)", "category": "analyst", "paper": "Chan1996", "desc": "Revision 섹터중립"}
+    ],
+    "news_sentiment": [
+      {"id": "ns_01", "expr": "rank(ts_decay_linear(rp_css_earnings, 20))", "category": "sentiment", "paper": "Tetlock2007", "desc": "Earnings Sentiment Decay"},
+      {"id": "ns_02", "expr": "rank(ts_decay_linear(rp_ess_earnings, 60))", "category": "sentiment", "paper": "Heston2017", "desc": "Earnings Event Sentiment Drift"},
+      {"id": "ns_03", "expr": "rank(ts_mean(rp_css_ratings, 20))", "category": "sentiment", "paper": "Tetlock2007", "desc": "Rating Sentiment 20일"},
+      {"id": "ns_04", "expr": "rank(nws12_afterhsz_sl)", "category": "sentiment", "paper": "Heston2017", "desc": "News Long/Short Signal"},
+      {"id": "ns_05", "expr": "rank(ts_delta(rp_css_earnings, 10))", "category": "sentiment", "paper": "Tetlock2007", "desc": "Earnings Sentiment Momentum"},
+      {"id": "ns_06", "expr": "group_neutralize(rank(ts_decay_linear(rp_css_earnings, 30)), sector)", "category": "sentiment", "paper": "Tetlock2007", "desc": "Sentiment Decay 섹터중립"},
+      {"id": "ns_07", "expr": "rank(rp_css_business)", "category": "sentiment", "paper": "Tetlock2007", "desc": "Business Sentiment"}
+    ],
+    "insider_trading": [
+      {"id": "it_01", "expr": "rank(ts_decay_linear(rp_css_insider, 20))", "category": "insider", "paper": "Lakonishok2001", "desc": "Insider Sentiment Decay 20일"},
+      {"id": "it_02", "expr": "rank(ts_mean(rp_css_insider, 30))", "category": "insider", "paper": "Seyhun1986", "desc": "Insider Net 30일 평균"},
+      {"id": "it_03", "expr": "trade_when(rp_ess_insider > 0, rank(ts_mean(rp_nip_insider, 10)), 10)", "category": "insider", "paper": "Lakonishok2001", "desc": "Insider Buy Signal 조건부"},
+      {"id": "it_04", "expr": "rank(ts_delta(ts_mean(rp_css_insider, 10), 20))", "category": "insider", "paper": "Seyhun1986", "desc": "Insider Momentum"}
+    ],
+    "short_interest": [
+      {"id": "si_01", "expr": "rank(-nws12_mainz_short_interest)", "category": "short", "paper": "Asquith2005", "desc": "Short Interest 역방향"},
+      {"id": "si_02", "expr": "group_neutralize(rank(-nws12_mainz_short_interest), sector)", "category": "short", "paper": "Asquith2005", "desc": "Short Interest 섹터중립"},
+      {"id": "si_03", "expr": "rank(-ts_delta(nws12_mainz_short_interest, 20))", "category": "short", "paper": "Rapach2016", "desc": "Short Interest 증가 → 하락"},
+      {"id": "si_04", "expr": "rank(-ts_zscore(nws12_mainz_short_interest, 60))", "category": "short", "paper": "Jiao2023", "desc": "Short Interest Surprise"}
+    ],
+    "social_sentiment": [
+      {"id": "ss_01", "expr": "rank(-scl12_buzz)", "category": "social", "paper": "Da2011", "desc": "High Buzz 리버전"},
+      {"id": "ss_02", "expr": "rank(snt_social_value)", "category": "social", "paper": "Da2015", "desc": "Social Sentiment Value"},
+      {"id": "ss_03", "expr": "rank(ts_mean(snt_social_value, 10))", "category": "social", "paper": "Da2015", "desc": "Social Sentiment 10일"},
+      {"id": "ss_04", "expr": "rank(-ts_zscore(snt_social_volume, 20))", "category": "social", "paper": "Barber2008", "desc": "Abnormal Attention 리버전"},
+      {"id": "ss_05", "expr": "trade_when(ts_delta(snt_social_volume, 5) > 0, rank(snt_social_value), 5)", "category": "social", "paper": "Da2011", "desc": "Buzz+Sentiment 조건부"}
+    ],
+    "options_factors": [
+      {"id": "of_01", "expr": "rank(-pcr_oi_270)", "category": "options", "paper": "Pan2006", "desc": "Put-Call OI Ratio 역방향"},
+      {"id": "of_02", "expr": "rank(-pcr_oi_60)", "category": "options", "paper": "Pan2006", "desc": "Put-Call OI 60일"},
+      {"id": "of_03", "expr": "rank(-ts_zscore(pcr_oi_30, 60))", "category": "options", "paper": "Pan2006", "desc": "PCR Surprise"},
+      {"id": "of_04", "expr": "group_neutralize(rank(-ts_delta(pcr_oi_60, 20)), sector)", "category": "options", "paper": "Pan2006", "desc": "PCR 변화 섹터중립"},
+      {"id": "of_05", "expr": "rank(-(implied_volatility_call_60 - historical_volatility_60))", "category": "options", "paper": "Xing2010", "desc": "IV-HV Spread (과대평가 역전)"},
+      {"id": "of_06", "expr": "rank(-(implied_volatility_call_30 - implied_volatility_call_120))", "category": "options", "paper": "Cremers2010", "desc": "IV Term Structure"},
+      {"id": "of_07", "expr": "rank(ts_delta(implied_volatility_call_60, 20))", "category": "options", "paper": "Cremers2010", "desc": "IV Momentum"},
+      {"id": "of_08", "expr": "rank(-implied_volatility_call_30)", "category": "options", "paper": "Ang2006", "desc": "Low Vol Anomaly (IV)"}
+    ],
+    "price_volume_advanced": [
+      {"id": "pv_01", "expr": "rank(-divide(ts_mean(vwap, 10), close))", "category": "pv", "paper": "Zarattini2023", "desc": "VWAP Deviation 10일"},
+      {"id": "pv_02", "expr": "rank(-ts_corr(returns, volume, 20))", "category": "pv", "paper": "Llorente2002", "desc": "Volume-Price Divergence"},
+      {"id": "pv_03", "expr": "rank(ts_rank(close, 252))", "category": "pv", "paper": "George2004", "desc": "52주 신고가 근접도"},
+      {"id": "pv_04", "expr": "group_neutralize(rank(ts_rank(close, 252)), sector)", "category": "pv", "paper": "George2004", "desc": "52주 신고가 섹터중립"},
+      {"id": "pv_05", "expr": "rank(-ts_zscore(divide(vwap, close), 20))", "category": "pv", "paper": "Zarattini2023", "desc": "VWAP Z-score 리버전"},
+      {"id": "pv_06", "expr": "rank(-ts_delta(close, 2)/close)", "category": "pv", "paper": "Jegadeesh1990", "desc": "2일 리버전"},
+      {"id": "pv_07", "expr": "rank((close-low-(high-close))/(high-low))", "category": "pv", "paper": "CLV", "desc": "Closing Location Value"}
+    ],
+    "momentum_variants": [
+      {"id": "mv_01", "expr": "rank(ts_delay(close, 21)/ts_delay(close, 252))", "category": "momentum", "paper": "Jegadeesh1993", "desc": "12-1M Momentum (skip month)"},
+      {"id": "mv_02", "expr": "group_neutralize(rank(ts_delay(close, 21)/ts_delay(close, 252)), sector)", "category": "momentum", "paper": "Jegadeesh1993", "desc": "12-1M 모멘텀 섹터중립"},
+      {"id": "mv_03", "expr": "rank(ts_decay_linear(returns, 20))", "category": "momentum", "paper": "Jegadeesh1993", "desc": "20일 선형감쇠 모멘텀"},
+      {"id": "mv_04", "expr": "rank(divide(ts_delay(close, 21)/ts_delay(close, 252), add(1, ts_std_dev(returns, 60))))", "category": "momentum", "paper": "Daniel2016", "desc": "Vol-Adjusted Momentum"},
+      {"id": "mv_05", "expr": "rank(ts_sum(if_else(returns>0, 1, 0), 252))", "category": "momentum", "paper": "Jegadeesh1993", "desc": "252일 상승일 비율"},
+      {"id": "mv_06", "expr": "rank(ts_rank(returns, 60))", "category": "momentum", "paper": "Jegadeesh1993", "desc": "60일 시계열 랭크"}
+    ]
+  },
+
+  "regime_templates": {
+    "high_vol_reversion": [
+      {"id": "hvr_01", "expr": "if_else(ts_std_dev(returns,{sw}) > ts_mean(ts_std_dev(returns,{sw}),{lw}) + {vk}*ts_std_dev(ts_std_dev(returns,{sw}),{lw}), rank(-ts_zscore({field}, 20)), rank(ts_delay(close, 21)/ts_delay(close, 252)))", "desc": "고변동→리버전, 저변동→12-1M모멘텀"},
+      {"id": "hvr_02", "expr": "if_else(ts_std_dev(returns,{sw}) > ts_mean(ts_std_dev(returns,{sw}),{lw}) + {vk}*ts_std_dev(ts_std_dev(returns,{sw}),{lw}), rank(-ts_delta(close, 2)/close), rank(ts_decay_linear({field}, 20)))", "desc": "고변동→2일리버전, 저변동→감쇠모멘텀"},
+      {"id": "hvr_03", "expr": "if_else(ts_std_dev(returns,{sw}) > ts_mean(ts_std_dev(returns,{sw}),{lw}), rank(operating_income/enterprise_value), rank(ts_delay(close, 21)/ts_delay(close, 252)))", "desc": "고변동→밸류, 저변동→모멘텀"}
+    ],
+    "volume_conditional": [
+      {"id": "vc_01", "expr": "if_else(ts_mean(volume, 5) > ts_mean(volume, 20), rank(ts_delta({field}, 5)), rank(-ts_zscore({field}, 20)))", "desc": "거래량급증→트렌드, 평시→리버전"},
+      {"id": "vc_02", "expr": "trade_when(ts_mean(volume, 5) > ts_mean(volume, 20), rank({field}), 5)", "desc": "거래량급증 5일홀드"},
+      {"id": "vc_03", "expr": "if_else(ts_mean(volume, 5) > ts_mean(volume, 20), rank(ts_decay_linear(rp_css_earnings, 20)), rank(-ts_delta(close, 2)/close))", "desc": "거래량급증→센티멘트, 평시→리버전"}
+    ],
+    "trend_defensive": [
+      {"id": "td_01", "expr": "if_else(ts_mean(returns, 10) < 0, rank(operating_income/enterprise_value), rank(ts_delay(close, 21)/ts_delay(close, 252)))", "desc": "하락→밸류, 상승→모멘텀"},
+      {"id": "td_02", "expr": "if_else(ts_mean(returns, 10) < 0, rank(-ts_std_dev(returns, 20)), rank(ts_decay_linear({field}, 20)))", "desc": "하락→저변동, 상승→감쇠모멘텀"},
+      {"id": "td_03", "expr": "if_else(ts_mean(returns, 10) < 0, group_neutralize(rank(ebit/enterprise_value), sector), rank(ts_rank(close, 252)))", "desc": "하락→EBIT밸류, 상승→52주신고가"}
+    ],
+    "multi_regime": [
+      {"id": "mr_01", "expr": "if_else(ts_std_dev(returns,{sw}) > ts_mean(ts_std_dev(returns,{sw}),{lw}) + {vk}*ts_std_dev(ts_std_dev(returns,{sw}),{lw}), rank(-ts_zscore({field}, 20)), if_else(ts_mean(returns, 10) > 0, rank(ts_delay(close, 21)/ts_delay(close, 252)), rank(operating_income/enterprise_value)))", "desc": "고변동→리버전, 상승→모멘텀, 하락→밸류"},
+      {"id": "mr_02", "expr": "if_else(ts_std_dev(returns,{sw}) > ts_mean(ts_std_dev(returns,{sw}),{lw}), rank(-ts_delta(close, 2)/close), if_else(ts_mean(volume, 5) > ts_mean(volume, 20), rank(ts_decay_linear(rp_css_earnings, 20)), rank(operating_income/enterprise_value)))", "desc": "고변동→리버전, 거래량급증→센티멘트, 기본→밸류"}
+    ],
+    "sentiment_regime": [
+      {"id": "sr_01", "expr": "if_else(ts_mean(returns, 10) < 0, rank(ts_decay_linear(rp_css_insider, 20)), rank(ts_decay_linear(rp_css_earnings, 20)))", "desc": "하락→인사이더, 상승→어닝센티멘트"},
+      {"id": "sr_02", "expr": "if_else(ts_std_dev(returns,{sw}) > ts_mean(ts_std_dev(returns,{sw}),{lw}), rank(-scl12_buzz), rank(snt_social_value))", "desc": "고변동→버즈리버전, 저변동→센티멘트"},
+      {"id": "sr_03", "expr": "trade_when(ts_delta(snt_social_volume, 5) > 0, rank(ts_decay_linear(rp_css_earnings, 10)), 5)", "desc": "소셜주목 + 어닝센티멘트 5일홀드"}
+    ],
+    "options_regime": [
+      {"id": "or_01", "expr": "if_else(ts_std_dev(returns,{sw}) > ts_mean(ts_std_dev(returns,{sw}),{lw}), rank(-pcr_oi_60), rank(-(implied_volatility_call_30 - implied_volatility_call_120)))", "desc": "고변동→PCR, 저변동→IV텀스트럭처"},
+      {"id": "or_02", "expr": "if_else(ts_mean(returns, 10) < 0, rank(-pcr_oi_270), rank(ts_delta(implied_volatility_call_60, 20)))", "desc": "하락→PCR방어, 상승→IV모멘텀"}
+    ],
+    "combined_multi_factor": [
+      {"id": "cmf_01", "expr": "rank(operating_income/enterprise_value) + rank(anl4_basicconqfv110_pu - anl4_basicconqfv110_down) + rank(ts_decay_linear(rp_css_earnings, 20))", "desc": "밸류+리비전+센티멘트 복합"},
+      {"id": "cmf_02", "expr": "rank(operating_income/enterprise_value) + rank(-nws12_mainz_short_interest) + rank(ts_rank(close, 252))", "desc": "밸류+공매도역+52주신고가 복합"},
+      {"id": "cmf_03", "expr": "group_neutralize(rank(ebit/enterprise_value) + rank(ts_decay_linear(rp_css_earnings, 30)) + rank(-pcr_oi_60), sector)", "desc": "밸류+센티+옵션 섹터중립 복합"}
+    ]
+  },
+
+  "default_params": {
+    "sw": 20,
+    "lw": 252,
+    "vk": 0.5
+  },
+
+  "high_alpha_fields": {
+    "pv": ["returns", "volume", "vwap", "high", "open", "close", "low", "sharesout", "split", "dividend"],
+    "fundamental": ["operating_income", "enterprise_value", "sales", "ebit", "ebitda", "equity", "eps", "revenue", "goodwill", "return_equity", "return_assets", "operating_expense", "pretax_income", "sales_growth", "sga_expense", "working_capital", "sales_ps", "ppent", "retained_earnings", "receivable"],
+    "analyst": ["anl4_basicconqfv110_pu", "anl4_basicconqfv110_down", "anl4_basicconqfv110_numest", "anl4_basicconqfv110_mean", "anl4_basicconqfv110_high", "anl4_basicconqfv110_low", "est_capex"],
+    "news": ["rp_css_earnings", "rp_ess_earnings", "rp_css_insider", "rp_ess_insider", "rp_nip_insider", "rp_css_ratings", "rp_css_business", "nws12_afterhsz_sl", "nws12_mainz_short_interest"],
+    "social": ["scl12_buzz", "snt_buzz", "snt_social_value", "snt_social_volume", "snt_buzz_ret"],
+    "options": ["pcr_oi_270", "pcr_oi_60", "pcr_oi_30", "implied_volatility_call_270", "implied_volatility_call_120", "implied_volatility_call_60", "implied_volatility_call_30", "implied_volatility_call_10", "historical_volatility_120", "historical_volatility_60", "historical_volatility_30"],
+    "model": ["unsystematic_risk_last_360_days", "unsystematic_risk_last_90_days"]
+  }
+}

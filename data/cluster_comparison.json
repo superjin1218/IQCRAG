@@ -1,0 +1,7 @@
+{
+  "n_common": 840,
+  "adjusted_rand_index": 0.14228875250201983,
+  "normalized_mutual_info": 0.6285872882025432,
+  "text_n_clusters": 96,
+  "behavior_n_clusters": 76
+}

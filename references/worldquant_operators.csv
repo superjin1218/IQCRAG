@@ -1,0 +1,67 @@
+Category,Operator,Description
+Arithmetic,abs(x),"Returns the absolute value of a number, removing any negative sign."
+Arithmetic,"add(x, y, filter = false), x + y","Adds two or more inputs element wise. Set filter=true to treat NaNs as 0 before summing."
+Arithmetic,densify(x),"Converts a grouping field of many buckets into lesser number of only available buckets so as to make working with grouping fields computationally efficient"
+Arithmetic,"divide(x, y), x / y",x / y
+Arithmetic,inverse(x),1 / x
+Arithmetic,log(x),"Calculates the natural logarithm of the input value. Commonly used to transform data that has positive values."
+Arithmetic,"max(x, y, ..)",Maximum value of all inputs. At least 2 inputs are required
+Arithmetic,"min(x, y ..)",Minimum value of all inputs. At least 2 inputs are required
+Arithmetic,"multiply(x ,y, ... , filter=false), x * y","Multiplies two or more inputs element wise. Set filter=true to treat NaNs as 0 before multiplication"
+Arithmetic,"power(x, y)",x ^ y
+Arithmetic,reverse(x),- x
+Arithmetic,sign(x),"Returns the sign of a number: +1 for positive, -1 for negative, and 0 for zero. If the input is NaN, returns NaN."
+Arithmetic,"signed_power(x, y)",x raised to the power of y such that final result preserves sign of x
+Arithmetic,sqrt(x),"Returns the non negative square root of x. Equivalent to power(x, 0.5); for signed roots use signed_power(x, 0.5)."
+Arithmetic,"subtract(x, y, filter=false), x - y","Subtracts inputs left to right: x - y - ... Supports two or more inputs. Set filter=true to treat NaNs as 0 before subtraction."
+Logical,"and(input1, input2)","Returns 1 ('true') if both inputs are 1 ('true'). Otherwise, returns 0 ('false')."
+Logical,"if_else(input1, input2, input3)","The if_else operator returns one of two values based on a condition. If the condition is true, it returns the first value; if false, it returns the second value."
+Logical,input1 < input2,"Returns 1 ('true') if input1 is a smaller than input2. Otherwise, returns 0 ('false')."
+Logical,input1 <= input2,"Returns 1 ('true') if input1 is a smaller or the same as input2. Otherwise, returns 0 ('false')."
+Logical,input1 == input2,"Returns 1 ('true') if input1 and input2 are the same. Otherwise, returns 0 ('false')."
+Logical,input1 > input2,"Returns 1 ('true') if input1 is a larger than input2. Otherwise, returns 0 ('false')."
+Logical,input1 >= input2,"Returns 1 ('true') if input1 is a larger or the same as input2. Otherwise, returns 0 ('false')."
+Logical,input1 != input2,"Returns 1 ('true') if input1 and input2 are different numbers. Otherwise, returns 0 ('false')."
+Logical,is_nan(input),If (input == NaN) return 1 else return 0
+Logical,not(x),"Returns the logical negation of x. Returns 0 when x is 1 ('true') and 1 when x is 0 ('false')."
+Logical,"or(input1, input2)","Returns 1 if either input is true (either input1 or input2 has a value of 1), otherwise it returns 0."
+Time Series,days_from_last_change(x),Calculates the number of days since the last change in the value of a given variable.
+Time Series,"hump(x, hump = 0.01)",Limits amount and magnitude of changes in input (thus reducing turnover)
+Time Series,"kth_element(x, d, k, ignore=""NaN"")","Returns the K-th value from a time series by looking back over a specified number of ('d') days, with the option to ignore certain values. Commonly used for backfilling missing data."
+Time Series,"last_diff_value(x, d)",Returns the most recent value of x from the past d days that is different from the current value of x.
+Time Series,"ts_arg_max(x, d)","Returns the number of days since the maximum value occurred in the last d days of a time series. If today's value is the maximum, returns 0; if it was yesterday, returns 1, and so on."
+Time Series,"ts_arg_min(x, d)","Returns the number of days since the minimum value occurred in a time series over the past d days. If today's value is the minimum, returns 0; if it was yesterday, returns 1, and so on."
+Time Series,"ts_av_diff(x, d)","Calculates the difference between a value and its mean over a specified period, ignoring NaN values in the mean calculation. In short, it returns x - ts_mean(x, d) with NaNs ignored."
+Time Series,"ts_backfill(x, lookback = d, k=1)","Replaces missing (NaN) values in a time series with the most recent valid value from a specified lookback window, improving data coverage and reducing risk from missing data."
+Time Series,"ts_corr(x, y, d)","Calculates the Pearson correlation between two variables, x and y, over the past d days, showing how closely they move together."
+Time Series,"ts_count_nans(x, d)",Counts the number of missing (NaN) values in a data series over a specified number of days.
+Time Series,"ts_covariance(y, x, d)","Calculates the covariance between two time-series variables, y and x, over the past d days. Useful for measuring how two variables move together within a specified historical window."
+Time Series,"ts_decay_linear(x, d, dense = false)","Applies a linear decay to time-series data over a set number of days, smoothing the data by averaging recent values and reducing the impact of older or missing data."
+Time Series,"ts_delay(x, d)","Returns the value of a variable x from d days ago. Use this operator to access historical data points by specifying the desired time lag in days."
+Time Series,"ts_delta(x, d)","Calculates the difference between a value and its delayed version over a specified period. Useful for measuring changes or momentum in time-series data."
+Time Series,"ts_mean(x, d)",Calculates the simple average (mean) value of a variable x over the past d days.
+Time Series,"ts_product(x, d)","Returns the product of the values of x over the past d days. Useful for calculating geometric means and compounding returns or growth rates."
+Time Series,"ts_quantile(x, d, driver=""gaussian"")","Calculates the ts_rank of the input and transforms it using the inverse cumulative distribution function (quantile function) of a specified probability distribution (default: Gaussian/normal)."
+Time Series,"ts_rank(x, d, constant = 0)","Ranks the value of a variable for each instrument over a specified number of past days, returning the rank of the current value (optionally adjusted by a constant)."
+Time Series,"ts_regression(y, x, d, lag = 0, rettype = 0)",Returns various parameters related to regression function
+Time Series,"ts_scale(x, d, constant = 0)","Scales a time series to a 0-1 range based on its minimum and maximum values over a specified period, with an optional constant shift."
+Time Series,"ts_std_dev(x, d)","Calculates the standard deviation of a data series x over the past d days, measuring how much the values deviate from their mean during that period."
+Time Series,ts_step(1),"Returns a counter of days, incrementing by one each day."
+Time Series,"ts_sum(x, d)",Sum values of x for the past d days.
+Time Series,"ts_zscore(x, d)","Calculates the Z-score of a time series, showing how far today's value is from the recent average, measured in standard deviations."
+Cross Sectional,"normalize(x, useStd = false, limit = 0.0)","Calculates the mean value of all valid alpha values for a certain date, then subtracts that mean from each element"
+Cross Sectional,"quantile(x, driver = gaussian, sigma = 1.0)","Rank the raw vector, shift the ranked Alpha vector, apply distribution (gaussian, cauchy, uniform)."
+Cross Sectional,"rank(x, rate=2)","Ranks the input among all the instruments and returns an equally distributed number between 0.0 and 1.0. For precise sort, use the rate as 0"
+Cross Sectional,"scale(x, scale=1, longscale=1, shortscale=1)","Scales input to booksize. We can also scale the long positions and short positions to separate scales by mentioning additional parameters to the operator"
+Cross Sectional,"winsorize(x, std=4)","Winsorizes x to make sure that all values in x are between the lower and upper limits, which are specified as multiple of std."
+Cross Sectional,zscore(x),"Z-score is a numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean."
+Vector,vec_avg(x),Taking mean of the vector field x
+Vector,vec_sum(x),Sum of vector field x
+Transformational,"bucket(rank(x), range=""0, 1, 0.1"" or buckets = ""2,5,6,7,10"")","Convert float values into indexes for user-specified buckets. Bucket is useful for creating group values, which can be passed to GROUP as input"
+Transformational,"trade_when(x, y, z)","Used in order to change Alpha values only under a specified condition and to hold Alpha values in other cases. It also allows to close Alpha positions (assign NaN values) under a specified condition"
+Group,"group_backfill(x, group, d, std = 4.0)","If a certain value for a certain date and instrument is NaN, from the set of same group instruments, calculate winsorized mean of all non-NaN values over last d days"
+Group,"group_mean(x, weight, group)",All elements in group equals to the mean
+Group,"group_neutralize(x, group)","Neutralizes Alpha against groups. These groups can be subindustry, industry, sector, country or a constant"
+Group,"group_rank(x, group)",Each elements in a group is assigned the corresponding rank in this group
+Group,"group_scale(x, group)","Normalizes the values in a group to be between 0 and 1. (x - groupmin) / (groupmax - groupmin)"
+Group,"group_zscore(x, group)","Calculates group Z-score - numerical measurement that describes a value's relationship to the mean of a group of values. Z-score is measured in terms of standard deviations from the mean."

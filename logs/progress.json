@@ -1,0 +1,78 @@
+{
+  "updated_at": "2026-04-15T02:13:22",
+  "steps": {
+    "01_corpus": {
+      "status": "done",
+      "progress": 1.0,
+      "message": "1008 필드 kept, 1086 dropped",
+      "started_at": "2026-04-11T15:01:09",
+      "finished_at": "2026-04-12T20:48:30"
+    },
+    "02_embeddings": {
+      "status": "done",
+      "progress": 1.0,
+      "message": "854 벡터 저장, dim=1024",
+      "started_at": "2026-04-11T15:11:58",
+      "finished_at": "2026-04-11T15:15:04"
+    },
+    "03_cluster": {
+      "status": "done",
+      "progress": 1.0,
+      "message": "97 clusters, 231 noise (target=100)",
+      "started_at": "2026-04-11T15:16:47",
+      "finished_at": "2026-04-11T15:27:00"
+    },
+    "04_representatives": {
+      "status": "done",
+      "progress": 1.0,
+      "message": "97 대표 필드 선정",
+      "started_at": "2026-04-11T15:17:21",
+      "finished_at": "2026-04-11T15:27:15"
+    },
+    "05_probe_alphas": {
+      "status": "done",
+      "progress": 1.0,
+      "message": "1008 단일 필드 알파 수식 생성",
+      "started_at": "2026-04-11T15:17:22",
+      "finished_at": "2026-04-12T20:48:30"
+    },
+    "06_step4": {
+      "status": "done",
+      "progress": 1.0,
+      "message": "INTER_HIGH (intra=0.73, inter=0.80)",
+      "started_at": "2026-04-11T15:27:35",
+      "finished_at": "2026-04-11T19:41:48"
+    },
+    "07_main_sim": {
+      "status": "done",
+      "progress": 1.0,
+      "message": "1008/1008 완료, pass=993, fail=15, pnl_ok=991",
+      "started_at": "2026-04-11T21:12:45",
+      "finished_at": "2026-04-15T00:39:38"
+    },
+    "08_graph": {
+      "status": "running",
+      "progress": 0.75,
+      "message": "08 graph · nodes=840, edges=7546",
+      "started_at": "2026-04-15T00:39:50"
+    },
+    "09_visualize": {
+      "status": "running",
+      "progress": 0.4,
+      "message": "09a graph html done",
+      "started_at": "2026-04-15T00:39:56",
+      "finished_at": "2026-04-15T01:42:00"
+    }
+  },
+  "sim_stats": {
+    "total_planned": 1008,
+    "completed": 1008,
+    "passed": 993,
+    "failed": 15,
+    "pnl_fetched": 991,
+    "current_pair": "",
+    "throughput_per_hour": 0,
+    "eta_hours": 0,
+    "phase": "done"
+  }
+}

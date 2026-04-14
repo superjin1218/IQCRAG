@@ -1,0 +1,9 @@
+{
+  "n_fields": 840,
+  "n_dates_raw": 1236,
+  "n_dates_valid": 1236,
+  "pnl_demean": true,
+  "pnl_weight": 0.85,
+  "text_weight": 0.15000000000000002,
+  "normalization": "none"
+}

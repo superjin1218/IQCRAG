@@ -1,0 +1,3 @@
+{"field_id": "pv13_revere_level", "phase": "sim", "error": "HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Read timed out. (read timeout=30)", "ts": "2026-04-12T14:59:23"}
+{"field_id": "max_adjusted_funds_from_operations_guidance_2", "phase": "sim", "error": "HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Read timed out. (read timeout=30)", "ts": "2026-04-12T22:12:52"}
+{"field_id": "max_adjusted_funds_from_operations_adj_guidance", "phase": "sim", "error": "HTTPSConnectionPool(host='api.worldquantbrain.com', port=443): Read timed out. (read timeout=30)", "ts": "2026-04-12T22:12:52"}

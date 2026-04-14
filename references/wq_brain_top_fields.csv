@@ -1,0 +1,293 @@
+field_id,description,category_name,dataset_name,alphaCount,userCount,source,type
+sector,Sector grouping,Price Volume,Price Volume Data for Equity,301141,14998,CSV,GROUP
+returns,Daily returns,Price Volume,Price Volume Data for Equity,289748,23004,CSV+PDF,MATRIX
+volume,Daily volume,Price Volume,Price Volume Data for Equity,264448,25157,CSV,MATRIX
+subindustry,Subindustry grouping,Price Volume,Price Volume Data for Equity,240087,21355,CSV,GROUP
+vwap,Daily volume weighted average price,Price Volume,Price Volume Data for Equity,59863,15900,CSV,MATRIX
+high,Daily high price,Price Volume,Price Volume Data for Equity,51090,11676,CSV,MATRIX
+open,Daily open price,Price Volume,Price Volume Data for Equity,48249,10288,CSV,MATRIX
+operating_income,Operating Income After Depreciation - Quarterly,Fundamental,Company Fundamental Data for Equity,37881,14905,CSV,MATRIX
+enterprise_value,Enterprise Value,Fundamental,Company Fundamental Data for Equity,35726,8111,CSV,MATRIX
+sales,Sales/Turnover (Net),Fundamental,Company Fundamental Data for Equity,32558,9688,CSV,MATRIX
+sharesout,Daily outstanding shares (in millions),Price Volume,Price Volume Data for Equity,27820,5441,CSV,MATRIX
+equity,Common/Ordinary Equity - Total,Fundamental,Company Fundamental Data for Equity,19910,4964,CSV,MATRIX
+ebit,Earnings Before Interest and Taxes,Fundamental,Company Fundamental Data for Equity,18498,7535,CSV,MATRIX
+ebitda,Earnings Before Interest,Fundamental,Company Fundamental Data for Equity,18248,6915,CSV,MATRIX
+scl12_buzz,relative sentiment volume,Social Media,Sentiment Data for Equity,17984,11802,CSV+PDF,MATRIX
+pv13_r2_min2_3000_sector,grouping fields,Price Volume,Relationship Data for Equity,17261,3281,CSV,GROUP
+pv13_h_min2_3000_sector,grouping fields,Price Volume,Relationship Data for Equity,16505,2609,CSV,GROUP
+split,Stock split ratio,Price Volume,Price Volume Data for Equity,16135,2994,CSV,MATRIX
+eps,Earnings Per Share (Basic) - Including Extraordinary Items,Fundamental,Company Fundamental Data for Equity,15771,3140,CSV,MATRIX
+fn_liab_fair_val_l1_a,"Liabilities Fair Value, Recurring, Level 1",Fundamental,Report Footnotes,15417,12280,CSV,MATRIX
+nws12_afterhsz_sl,Whether a long or short position would have been more advantageous: If (EODHigh - Last) > (Last - EODLow) Then LS = 1; If (EODHigh - Last) = (Last - EODLow) Then LS = 0; If (EODHigh - Last) < (Last - EODLow) Then LS = -1.,News,US News Data,14970,9682,CSV,VECTOR
+fn_oth_income_loss_fx_transaction_and_tax_translation_adj_a,"Amount after tax and reclassification adjustments of gain (loss) on foreign currency translation adjustments, foreign currency transactions designated and effective as economic hedges of a net investment in a foreign entity, and intra-entity foreign currency transactions that are of a long-term-investment nature.",Fundamental,Report Footnotes,13938,11090,CSV,MATRIX
+goodwill,Goodwill (net),Fundamental,Company Fundamental Data for Equity,12857,3716,CSV,MATRIX
+revenue,Revenue - Total,Fundamental,Company Fundamental Data for Equity,11481,3242,CSV,MATRIX
+dividend,Dividend,Price Volume,Price Volume Data for Equity,10844,3909,CSV+PDF,MATRIX
+pv13_r2_min20_3000_sector,grouping fields,Price Volume,Relationship Data for Equity,10535,2456,CSV,GROUP
+pv13_h_min2_focused_pureplay_3000_sector,grouping fields,Price Volume,Relationship Data for Equity,10017,2064,CSV,GROUP
+pcr_oi_270,Ratio of put open interest to call open interest on a stock's options with expiration 270 days in the future.,Option,Options Analytics,9418,5447,CSV,MATRIX
+ppent,Property Plant and Equipment - Total (Net),Fundamental,Company Fundamental Data for Equity,9173,1434,CSV,MATRIX
+implied_volatility_call_270,At-the-money option-implied volatility for call Option for 270 days,Option,Volatility Data,9142,6023,CSV,MATRIX
+operating_expense,Operating Expense - Total,Fundamental,Company Fundamental Data for Equity,8922,1641,CSV,MATRIX
+fnd6_fopo,Funds from Operations - Other,Fundamental,Company Fundamental Data for Equity,8646,6205,CSV,MATRIX
+fnd6_drlt,Deferred Revenue - Long-term,Fundamental,Company Fundamental Data for Equity,8419,5927,CSV,MATRIX
+implied_volatility_call_120,At-the-money option-implied volatility for call Option for 120 days,Option,Volatility Data,8267,4020,CSV,MATRIX
+return_equity,Return on Equity,Fundamental,Company Fundamental Data for Equity,7931,1568,CSV,MATRIX
+sga_expense,"Selling, General and Administrative Expenses",Fundamental,Company Fundamental Data for Equity,7872,1418,CSV,MATRIX
+fnd6_drc,Deferred Revenue - Current,Fundamental,Company Fundamental Data for Equity,7852,5872,CSV,MATRIX
+receivable,Receivables - Total,Fundamental,Company Fundamental Data for Equity,7830,1379,CSV,MATRIX
+implied_volatility_call_1080,At-the-money option-implied volatility for call option for 1080 days,Option,Volatility Data,7619,3214,CSV,MATRIX
+unsystematic_risk_last_360_days,Unsystematic Risk Last 360 Days - Relative to SPY,Model,Systematic Risk Metrics,7428,1961,CSV,MATRIX
+fnd6_ivaco,Investing Activities - Other,Fundamental,Company Fundamental Data for Equity,7352,5502,CSV,MATRIX
+retained_earnings,Retained Earnings,Fundamental,Company Fundamental Data for Equity,7222,2909,CSV,MATRIX
+news_mins_10_pct_dn,Number of minutes that elapsed before price went down 10 percentage points,News,US News Data,7199,3070,CSV,MATRIX
+sales_growth,Growth in Sales (Quarterly),Fundamental,Company Fundamental Data for Equity,7149,2474,CSV,MATRIX
+snt_buzz,"negative relative sentiment volume, fill nan with 0",Social Media,Sentiment Data for Equity,7142,2211,CSV+PDF,MATRIX
+pretax_income,Pretax Income,Fundamental,Company Fundamental Data for Equity,6995,1245,CSV,MATRIX
+fnd6_newa2v1300_ppent,"Property, Plant and Equipment - Total (Net)",Fundamental,Company Fundamental Data for Equity,6847,1480,CSV,MATRIX
+return_assets,Return on Assets,Fundamental,Company Fundamental Data for Equity,6775,1884,CSV,MATRIX
+news_cap,Reported market capitalization for the calendar day of the session,News,US News Data,6383,1736,CSV,MATRIX
+sales_ps,Sales per Share (Quarterly),Fundamental,Company Fundamental Data for Equity,6097,1536,CSV,MATRIX
+implied_volatility_mean_10,At-the-money option-implied volatility mean for 10 days,Option,Volatility Data,5933,2391,CSV,MATRIX
+fnd6_mrcta,Thereafter Portion of Leases,Fundamental,Company Fundamental Data for Equity,5489,3662,CSV,MATRIX
+fnd6_recd,Receivables - Estimated Doubtful,Fundamental,Company Fundamental Data for Equity,5264,1184,CSV,MATRIX
+working_capital,Working Capital (Balance Sheet),Fundamental,Company Fundamental Data for Equity,5147,1147,CSV,MATRIX
+implied_volatility_call_60,At-the-money option-implied volatility for call Option for 60 days,Option,Volatility Data,5124,2562,CSV,MATRIX
+snt_buzz_bfl,"negative relative sentiment volume, fill nan with 1",Social Media,Sentiment Data for Equity,5076,2084,CSV,MATRIX
+employee,Employees,Fundamental,Company Fundamental Data for Equity,5047,1249,CSV,MATRIX
+fnd6_rea,Retained Earnings - Restatement,Fundamental,Company Fundamental Data for Equity,5018,1898,CSV,MATRIX
+implied_volatility_call_180,At-the-money option-implied volatility for call Option for 180 days,Option,Volatility Data,4949,2575,CSV,MATRIX
+pv13_h_f1_sector,grouping fields,Price Volume,Relationship Data for Equity,4885,1396,CSV,GROUP
+rel_num_part,number of the instrument's partners,Price Volume,Relationship Data for Equity,4878,1855,CSV,MATRIX
+est_capex,Capital Expenditures - mean of estimations,Analyst,Analyst Estimate Data for Equity,4533,588,CSV,MATRIX
+fnd6_fatl,"Property, Plant, and Equipment - Leases at Cost",Fundamental,Company Fundamental Data for Equity,4533,2868,CSV,MATRIX
+fnd6_ein,Employer Identification Number code for the company,Fundamental,Company Fundamental Data for Equity,4396,1592,CSV,MATRIX
+snt_social_volume,Normalized tweet volume,Social Media,Social Media Data for Equity,4393,1730,CSV,MATRIX
+snt_social_value,Z score of sentiment,Social Media,Social Media Data for Equity,4342,1990,CSV+PDF,MATRIX
+historical_volatility_180,Close-to-close Historical volatility over 180 days,Option,Volatility Data,4047,1792,CSV,MATRIX
+anl4_bac1detaillt_item,Financial item,Analyst,Analyst Estimate Data for Equity,3987,2327,CSV,VECTOR
+implied_volatility_call_150,At-the-money option-implied volatility for call Option for 150 days,Option,Volatility Data,3975,2030,CSV+PDF,MATRIX
+scl12_alltype_buzzvec,sentiment volume,Social Media,Sentiment Data for Equity,3935,2417,CSV+PDF,VECTOR
+anl4_dei3lltv110_item,Financial item,Analyst,Analyst Estimate Data for Equity,3913,2116,CSV,VECTOR
+implied_volatility_call_10,At-the-money option-implied volatility for call Option for 10 days,Option,Volatility Data,3720,1874,CSV,MATRIX
+snt_buzz_ret,negative return of relative sentiment volume,Social Media,Sentiment Data for Equity,3657,1609,CSV,MATRIX
+news_atr14,14-day Average True Range,News,US News Data,3555,649,CSV,MATRIX
+fnd6_newqv1300_drltq,Deferred Revenue - Long-term,Fundamental,Company Fundamental Data for Equity,3506,1721,CSV,MATRIX
+fnd6_newa2v1300_rdipeps,In Process R&D Expense Basic EPS Effect,Fundamental,Company Fundamental Data for Equity,3464,2801,CSV,MATRIX
+parkinson_volatility_120,Parkinson model's historical volatility over 120 days,Option,Volatility Data,3442,1835,CSV,MATRIX
+historical_volatility_120,Close-to-close Historical volatility over 120 days,Option,Volatility Data,3426,1580,CSV,MATRIX
+anl4_basicconqfv110_pu,The number of upper estimations,Analyst,Analyst Estimate Data for Equity,3389,1923,CSV,VECTOR
+fnd6_xrent,Rental Expense,Fundamental,Company Fundamental Data for Equity,3201,1820,CSV,MATRIX
+implied_volatility_call_360,At-the-money option-implied volatility for call Option for 360 days,Option,Volatility Data,3191,1599,CSV,MATRIX
+implied_volatility_call_30,At-the-money option-implied volatility for call Option for 30 days,Option,Volatility Data,3155,1416,CSV,MATRIX
+fnd6_ds,Debt - Subordinated,Fundamental,Company Fundamental Data for Equity,3149,1738,CSV,MATRIX
+implied_volatility_call_90,At-the-money option-implied volatility for call Option for 90 days,Option,Volatility Data,3099,1318,CSV,MATRIX
+rel_num_all,number of the companies whose product overlapped with the instrument,Price Volume,Relationship Data for Equity,3072,1195,CSV,MATRIX
+pv13_revere_key_sector_total,Number of key focus sectors for the company,Price Volume,Relationship Data for Equity,3009,1563,CSV,MATRIX
+pv13_revere_term_sector_total,Number of terminal sectors for the company,Price Volume,Relationship Data for Equity,2997,1097,CSV+PDF,MATRIX
+scl12_sentiment,sentiment,Social Media,Sentiment Data for Equity,2891,998,CSV,MATRIX
+rp_css_business,Composite sentiment score of business-related news,News,Ravenpack News Data,2888,891,CSV,MATRIX
+implied_volatility_call_720,At-the-money option-implied volatility for call Option for 720 days,Option,Volatility Data,2843,1432,CSV,MATRIX
+news_eod_close,Close price of the session,News,US News Data,2810,1162,CSV,MATRIX
+anl4_bac1detailrec_item,Financial item,Analyst,Analyst Estimate Data for Equity,2796,1222,CSV,VECTOR
+fnd6_txdbclq,Current Deferred Tax Liability,Fundamental,Company Fundamental Data for Equity,2791,1374,CSV,MATRIX
+fnd6_lcox,Current Liabilities - Other - Sundry,Fundamental,Company Fundamental Data for Equity,2790,1931,CSV,MATRIX
+fnd6_newa2v1300_oibdp,Operating Income Before Depreciation,Fundamental,Company Fundamental Data for Equity,2779,1054,CSV,MATRIX
+unsystematic_risk_last_90_days,Unsystematic Risk Last 90 Days - Relative to SPY,Model,Systematic Risk Metrics,2776,1190,CSV,MATRIX
+anl4_dei2lqfv110_item,Financial item,Analyst,Analyst Estimate Data for Equity,2727,1724,CSV,VECTOR
+news_pe_ratio,Reported price-to-earnings ratio for the calendar day of the session,News,US News Data,2705,1209,CSV,MATRIX
+pv13_reveremap,Mapping data,Price Volume,Relationship Data for Equity,2656,1113,CSV,MATRIX
+fnd6_currencya_curcd,ISO Currency Code - Company Annual Market,Fundamental,Company Fundamental Data for Equity,2617,1851,CSV,MATRIX
+fnd6_newqv1300_lltq,Long-Term Liabilities (Total),Fundamental,Company Fundamental Data for Equity,2580,939,CSV,MATRIX
+rel_ret_part,Averaged one-day return of the instrument's partners,Price Volume,Relationship Data for Equity,2505,1039,CSV,MATRIX
+rd_expense,Research And Development (Quarterly),Fundamental,Company Fundamental Data for Equity,2470,694,CSV,MATRIX
+fnd6_eventv110_optvolq,Volatility - Assumption (%),Fundamental,Company Fundamental Data for Equity,2446,1252,CSV,VECTOR
+fnd6_pifo,Pretax Income - Foreign,Fundamental,Company Fundamental Data for Equity,2427,1228,CSV,MATRIX
+rel_ret_comp,Averaged one-day return of the competing companies,Price Volume,Relationship Data for Equity,2400,1440,CSV,MATRIX
+historical_volatility_10,Close-to-close Historical volatility over 10 days,Option,Volatility Data,2362,973,CSV,MATRIX
+rel_num_cust,number of the instrument's customers,Price Volume,Relationship Data for Equity,2344,972,CSV,MATRIX
+fnd6_newa1v1300_gp,Gross Profit (Loss),Fundamental,Company Fundamental Data for Equity,2342,1067,CSV,MATRIX
+anl4_dts_rspe,Reported Earnings per share - standard deviation of estimations,Analyst,Analyst Estimate Data for Equity,2327,1468,CSV,MATRIX
+fnd6_ppents,"Property, Plant & Equipment",Fundamental,Company Fundamental Data for Equity,2322,817,CSV,VECTOR
+fnd6_zipcode,ZIP code related to the company,Fundamental,Company Fundamental Data for Equity,2302,904,CSV,MATRIX
+fn_op_lease_rent_exp_a,"Rental expense for the reporting period incurred under operating leases, including minimum and any contingent rent expense, net of related sublease income.",Fundamental,Report Footnotes,2275,1038,CSV,MATRIX
+historical_volatility_60,Close-to-close Historical volatility over 60 days,Option,Volatility Data,2273,879,CSV,MATRIX
+fnd6_lcoxdr,Current Liabilities - Other - Excluding Deferred Revenue,Fundamental,Company Fundamental Data for Equity,2242,1030,CSV,MATRIX
+pcr_oi_180,Ratio of put open interest to call open interest on a stock's options with expiration 180 days in the future.,Option,Options Analytics,2200,1340,CSV,MATRIX
+fnd6_dlto,Debt - Long-Term - Other,Fundamental,Company Fundamental Data for Equity,2188,1901,CSV,MATRIX
+news_atr_ratio,Ratio of today's range to 20-day average true range,News,US News Data,2150,667,CSV,MATRIX
+fnd6_intc,Interest Capitalized,Fundamental,Company Fundamental Data for Equity,2144,1405,CSV,MATRIX
+snt_value,"negative sentiment, fill nan with 0",Social Media,Sentiment Data for Equity,2129,654,CSV,MATRIX
+news_mins_20_chg,The minimum of L or S above for 20-minute bucket,News,US News Data,2118,1023,CSV,MATRIX
+historical_volatility_150,Close-to-close Historical volatility over 150 days,Option,Volatility Data,2097,863,CSV,MATRIX
+fnd6_newa2v1300_prsho,Redeem Pfd Shares Outs (000),Fundamental,Company Fundamental Data for Equity,2069,1857,CSV,MATRIX
+pv13_1l_scibr,grouping fields,Price Volume,Relationship Data for Equity,2059,751,CSV,GROUP
+rp_nip_inverstor,News impact projection of investor relations news,News,Ravenpack News Data,2059,689,CSV,MATRIX
+nws12_afterhsz_57s,Number of minutes that elapsed before price went down 7.5 percentage points,News,US News Data,2035,606,CSV,VECTOR
+nws12_mainz_01p,The minimum of L or S above for 10-minute bucket,News,US News Data,2034,684,CSV,VECTOR
+parkinson_volatility_180,Parkinson model's historical volatility over 180 days,Option,Volatility Data,1998,876,CSV,MATRIX
+pv13_h2_sector,grouping fields,Price Volume,Relationship Data for Equity,1968,740,CSV,GROUP
+fnd6_weburl,WEB URL code for the company,Fundamental,Company Fundamental Data for Equity,1898,842,CSV,MATRIX
+pv13_custretsig_retsig,Sign of customer return,Price Volume,Relationship Data for Equity,1885,802,CSV+PDF,MATRIX
+fnd6_mrc2,Rental Commitments - Minimum - 2nd Year,Fundamental,Company Fundamental Data for Equity,1876,862,CSV,MATRIX
+fnd6_exre,Exchange Rate Effect,Fundamental,Company Fundamental Data for Equity,1870,743,CSV,MATRIX
+fnd6_txo,Income Taxes - Other,Fundamental,Company Fundamental Data for Equity,1863,1382,CSV,MATRIX
+fnd6_loxdr,Liabilities - Other - Excluding Deferred Revenue,Fundamental,Company Fundamental Data for Equity,1847,960,CSV,MATRIX
+implied_volatility_call_20,At-the-money option-implied volatility for call Option for 20 days,Option,Volatility Data,1847,903,CSV,MATRIX
+fnd6_teq,Stockholders' Equity - Total,Fundamental,Company Fundamental Data for Equity,1809,878,CSV,MATRIX
+historical_volatility_90,Close-to-close Historical volatility over 90 days,Option,Volatility Data,1797,743,CSV,MATRIX
+rel_num_comp,number of the instrument's competitors,Price Volume,Relationship Data for Equity,1797,1023,CSV,MATRIX
+pv13_com_rk_au,the HITS authority score of competitors,Price Volume,Relationship Data for Equity,1794,929,CSV,MATRIX
+news_tot_ticks,Total number of ticks for the trading day,News,US News Data,1793,878,CSV,MATRIX
+fnd6_newqeventv110_optrfrq,Risk Free Rate - Assumption (%),Fundamental,Company Fundamental Data for Equity,1790,1106,CSV,VECTOR
+fnd6_newa2v1300_rdipd,In Process R&D Expense Diluted EPS Effect,Fundamental,Company Fundamental Data for Equity,1780,1369,CSV,MATRIX
+fnd6_state,integer for identifying the state of the company,Fundamental,Company Fundamental Data for Equity,1754,581,CSV,MATRIX
+pv13_revere_index_cap,Company market capitalization,Price Volume,Relationship Data for Equity,1722,911,CSV,MATRIX
+nws12_prez_57p,The minimum of L or S above for 7.5-minute bucket,News,US News Data,1719,817,CSV,VECTOR
+fnd6_mrc5,Rental Commitments - Minimum - 5th Year,Fundamental,Company Fundamental Data for Equity,1703,836,CSV,MATRIX
+nws12_prez_4l,Number of minutes that elapsed before price went up 4 percentage points,News,US News Data,1699,1129,CSV,VECTOR
+fnd6_itci,Investment Tax Credit (Income Account),Fundamental,Company Fundamental Data for Equity,1686,815,CSV,MATRIX
+anl4_basicconafv110_pu,The number of upper estimations,Analyst,Analyst Estimate Data for Equity,1654,1092,CSV,VECTOR
+fnd6_newa2v1300_optexd,Options - Exercised (-),Fundamental,Company Fundamental Data for Equity,1652,749,CSV,MATRIX
+news_spy_close,Price of SPY at close of session,News,US News Data,1645,678,CSV,MATRIX
+unsystematic_risk_last_60_days,Unsystematic Risk Last 60 Days - Relative to SPY,Model,Systematic Risk Metrics,1628,700,CSV,MATRIX
+fnd6_dltr,Long-Term Debt - Reduction,Fundamental,Company Fundamental Data for Equity,1619,818,CSV,MATRIX
+fnd6_optca,Options - Cancelled (-),Fundamental,Company Fundamental Data for Equity,1609,728,CSV,MATRIX
+rel_ret_all,Averaged one-day return of the companies whose product overlapped with the instrument,Price Volume,Relationship Data for Equity,1605,688,CSV,MATRIX
+parkinson_volatility_90,Parkinson model's historical volatility over 90 days,Option,Volatility Data,1600,710,CSV,MATRIX
+pv13_com_page_rank,the PageRank of competitors,Price Volume,Relationship Data for Equity,1597,851,CSV+PDF,MATRIX
+anl4_basicconltv110_numest,The number of forecasts counted in aggregation,Analyst,Analyst Estimate Data for Equity,1595,1216,CSV,VECTOR
+fnd6_dd1,Long-Term Debt Due in 1 Year,Fundamental,Company Fundamental Data for Equity,1595,805,CSV,MATRIX
+fnd6_niadj,Net Income Adjusted for Common/Ordinary Stock (Capital) Equivalents,Fundamental,Company Fundamental Data for Equity,1595,709,CSV,MATRIX
+fnd6_newqv1300_ancq,Non-Current Assets - Total,Fundamental,Company Fundamental Data for Equity,1589,275,CSV,MATRIX
+parkinson_volatility_150,Parkinson model's historical volatility over 150 days,Option,Volatility Data,1584,633,CSV,MATRIX
+rp_css_inverstor,Composite sentiment score of investor relations news,News,Ravenpack News Data,1580,579,CSV,MATRIX
+rp_ess_ratings,Event sentiment score of analyst ratings-related news,News,Ravenpack News Data,1579,719,CSV+PDF,MATRIX
+news_close_vol,Main close volume,News,US News Data,1572,479,CSV,MATRIX
+fnd6_naicss,NAICS Code,Fundamental,Company Fundamental Data for Equity,1568,956,CSV,VECTOR
+fnd6_eventv110_optlifeq,Life of Options - Assumption (# yrs),Fundamental,Company Fundamental Data for Equity,1565,1052,CSV,VECTOR
+fnd6_newqv1300_lcoq,Current Liabilities - Other - Total,Fundamental,Company Fundamental Data for Equity,1562,1242,CSV,MATRIX
+historical_volatility_30,Close-to-close Historical volatility over 30 days,Option,Volatility Data,1559,712,CSV,MATRIX
+parkinson_volatility_10,Parkinson model's historical volatility over 2 weeks,Option,Volatility Data,1547,581,CSV,MATRIX
+parkinson_volatility_60,Parkinson model's historical volatility over 60 days,Option,Volatility Data,1541,625,CSV,MATRIX
+fnd6_incorp,Incorporated,Fundamental,Company Fundamental Data for Equity,1520,773,CSV,MATRIX
+fnd6_newa2v1300_xidoc,Extraordinary Items and Discontinued Operations (Cash Flow),Fundamental,Company Fundamental Data for Equity,1516,799,CSV,MATRIX
+historical_volatility_20,Close-to-close Historical volatility over 20 days,Option,Volatility Data,1515,673,CSV,MATRIX
+rp_nip_ratings,News impact projection of analyst ratings-related news,News,Ravenpack News Data,1505,787,CSV,MATRIX
+rp_css_ratings,Composite sentiment score of analyst ratings-related news,News,Ravenpack News Data,1503,741,CSV,MATRIX
+news_mins_10_pct_up,Number of minutes that elapsed before price went up 10 percentage points,News,US News Data,1482,634,CSV,MATRIX
+fnd6_mrc4,Rental Commitments - Minimum - 4th Year,Fundamental,Company Fundamental Data for Equity,1476,867,CSV,MATRIX
+fnd6_fopox,Funds from Operations - Other excluding Option Tax Benefit,Fundamental,Company Fundamental Data for Equity,1444,901,CSV,MATRIX
+fnd6_newa2v1300_ni,Net Income (Loss),Fundamental,Company Fundamental Data for Equity,1444,750,CSV,MATRIX
+anl4_eaz2lrec_person,Broker Id,Analyst,Analyst Estimate Data for Equity,1439,991,CSV,VECTOR
+pv13_h2_min2_1k_sector,Grouping fields for top 1000,Price Volume,Relationship Data for Equity,1439,643,CSV,GROUP
+fnd6_mrc1,Rental Commitments - Minimum - 1st Year,Fundamental,Company Fundamental Data for Equity,1437,866,CSV,MATRIX
+fnd6_xopr,Operating Expenses - Total,Fundamental,Company Fundamental Data for Equity,1427,789,CSV,MATRIX
+rp_css_earnings,Composite sentiment score of earnings news,News,Ravenpack News Data,1426,630,CSV,MATRIX
+fnd6_txbco,Excess Tax Benefit Stock Options - Cash Flow Operating,Fundamental,Company Fundamental Data for Equity,1425,972,CSV,MATRIX
+fscore_quality,The purpose of this metric is to measure both the sustainability and certainty of earnings.,Model,Fundamental Scores,1425,731,CSV,MATRIX
+est_cashflow_op,Cash Flow From Operations - mean of estimations,Analyst,Analyst Estimate Data for Equity,1422,496,CSV,MATRIX
+fnd6_idesindq_curcd,ISO Currency Code - Company Annual Market,Fundamental,Company Fundamental Data for Equity,1420,908,CSV,MATRIX
+fn_op_lease_min_pay_due_a,Amount of required minimum rental payments for leases having an initial or remaining non-cancelable letter-terms in excess of 1 year.,Fundamental,Report Footnotes,1407,797,CSV,MATRIX
+fn_new_shares_issued_a,Number of new stock issued during the period.,Fundamental,Report Footnotes,1394,643,CSV,MATRIX
+news_all_vwap,Volume weighted average price of all sessions,News,US News Data,1383,536,CSV,MATRIX
+pv13_revere_city,City code,Price Volume,Relationship Data for Equity,1368,658,CSV,MATRIX
+rp_ess_earnings,Event sentiment score of earnings news,News,Ravenpack News Data,1365,549,CSV+PDF,MATRIX
+fnd6_fyrc,"Unimportant technical code, please ignore for research purposes",Fundamental,Company Fundamental Data for Equity,1363,460,CSV,MATRIX
+news_mov_vol,30 day moving average session volume,News,US News Data,1348,503,CSV,MATRIX
+fnd6_dd3,Debt Due in 3rd Year,Fundamental,Company Fundamental Data for Equity,1331,877,CSV,MATRIX
+nws18_ghc_lna,Change in analyst recommendation,News,Ravenpack News Data,1327,469,CSV,VECTOR
+parkinson_volatility_20,Parkinson model's historical volatility over 20 days,Option,Volatility Data,1327,500,CSV,MATRIX
+fnd6_stype,Segment Type,Fundamental,Company Fundamental Data for Equity,1321,816,CSV,VECTOR
+anl4_basicconqfv110_numest,The number of forecasts counted in aggregation,Analyst,Analyst Estimate Data for Equity,1320,1021,CSV,VECTOR
+fnd6_newa1v1300_lo,Liabilities - Other - Total,Fundamental,Company Fundamental Data for Equity,1319,664,CSV,MATRIX
+fnd6_newqv1300_drcq,Deferred Revenue - Current,Fundamental,Company Fundamental Data for Equity,1319,664,CSV,MATRIX
+fnd6_newqv1300_acomincq,Accumulated Other Comprehensive Income (Loss),Fundamental,Company Fundamental Data for Equity,1317,323,CSV,MATRIX
+fnd6_txfo,Income Taxes - Foreign,Fundamental,Company Fundamental Data for Equity,1312,657,CSV,MATRIX
+fnd6_mrct,Rental Commitments - Minimum - 5-Year Total,Fundamental,Company Fundamental Data for Equity,1310,642,CSV,MATRIX
+fnd6_mrc3,Rental Commitments - Minimum - 3rd Year,Fundamental,Company Fundamental Data for Equity,1301,645,CSV,MATRIX
+rp_ess_partner,Event sentiment score of partnership news,News,Ravenpack News Data,1295,501,CSV,MATRIX
+fnd6_cshtr,Common Shares Traded - Annual,Fundamental,Company Fundamental Data for Equity,1294,690,CSV,MATRIX
+news_max_dn_amt,The price at the time of the news minus the after the news low,News,US News Data,1293,345,CSV,MATRIX
+news_prev_vol,Previous day's session volume,News,US News Data,1293,451,CSV,MATRIX
+news_spy_last,Last Price of the SPY at the time of the news,News,US News Data,1282,601,CSV,MATRIX
+fnd6_currencyqv1300_curcd,ISO Currency Code - Company Annual Market,Fundamental,Company Fundamental Data for Equity,1278,663,CSV,MATRIX
+parkinson_volatility_30,Parkinson model's historical volatility over 30 days,Option,Volatility Data,1276,503,CSV,MATRIX
+news_indx_perf,((EODClose - TONLast) / TONLast) - ((SPYClose - SPYLast) / SPYLast),News,US News Data,1262,406,CSV,MATRIX
+news_eps_actual,The actual Earnings Per Share value that was conveyed by the news release,News,US News Data,1259,482,CSV,MATRIX
+nws12_prez_57l,Number of minutes that elapsed before price went up 7.5 percentage points,News,US News Data,1257,698,CSV,VECTOR
+nws12_mainz_01l,Number of minutes that elapsed before price went up 10 percentage points,News,US News Data,1255,587,CSV,VECTOR
+pcr_oi_120,Ratio of put open interest to call open interest on a stock's options with expiration 120 days in the future.,Option,Options Analytics,1255,452,CSV,MATRIX
+anl4_basicconqfv110_mean,Mean of estimations,Analyst,Analyst Estimate Data for Equity,1254,1171,CSV,VECTOR
+news_max_up_ret,Percent change from the price at the time of the news to the after the news high,News,US News Data,1253,558,CSV,MATRIX
+pcr_oi_10,Ratio of put open interest to call open interest on a stock's options with expiration 10 days in the future.,Option,Options Analytics,1253,483,CSV,MATRIX
+est_bookvalue_ps,Book value per share - average of estimations,Analyst,Analyst Estimate Data for Equity,1247,584,CSV,MATRIX
+fnd6_ranks,Ranking,Fundamental,Company Fundamental Data for Equity,1219,898,CSV,VECTOR
+news_mins_10_chg,The minimum of L or S above for 10-minute bucket,News,US News Data,1208,396,CSV,MATRIX
+anl4_basicconqfv110_down,Number of lower estimations,Analyst,Analyst Estimate Data for Equity,1202,1093,CSV,VECTOR
+nws18_nip,Degree of impact of the news,News,Ravenpack News Data,1199,288,CSV,VECTOR
+news_eod_high,Highest price reached between the time of news and the end of the session,News,US News Data,1196,392,CSV,MATRIX
+fnd6_mfma1_at,Assets - Total,Fundamental,Company Fundamental Data for Equity,1193,390,CSV,MATRIX
+fnd6_mfmq_cshprq,Common Shares Used to Calculate Earnings Per Share - Basic,Fundamental,Company Fundamental Data for Equity,1193,278,CSV,MATRIX
+fnd6_newa1v1300_aco,Current Assets - Other - Total,Fundamental,Company Fundamental Data for Equity,1193,784,CSV,MATRIX
+fnd6_lifr,LIFO Reserve,Fundamental,Company Fundamental Data for Equity,1186,350,CSV,MATRIX
+fnd6_xacc,Accrued Expenses,Fundamental,Company Fundamental Data for Equity,1183,580,CSV,MATRIX
+fnd6_cptnewqv1300_dlttq,Long-Term Debt - Total,Fundamental,Company Fundamental Data for Equity,1181,656,CSV,MATRIX
+pv13_rha2_min2_sector,grouping fields,Price Volume,Relationship Data for Equity,1179,592,CSV,GROUP
+fn_oth_income_loss_net_of_tax_a,Amount after tax and reclassification adjustments of other comprehensive income (loss).,Fundamental,Report Footnotes,1175,657,CSV,MATRIX
+pcr_oi_150,Ratio of put open interest to call open interest on a stock's options with expiration 150 days in the future.,Option,Options Analytics,1174,712,CSV,MATRIX
+fnd6_loc,string for locating the Headquarters of the company,Fundamental,Company Fundamental Data for Equity,1173,385,CSV,MATRIX
+anl4_dei2laf_item,Financial item,Analyst,Analyst Estimate Data for Equity,1168,893,CSV,VECTOR
+rp_css_credit_ratings,Composite sentiment score of credit ratings news,News,Ravenpack News Data,1161,259,CSV,MATRIX
+pv13_ompetitorgraphrank_hub_rank,the HITS hub score of competitors,Price Volume,Relationship Data for Equity,1160,612,CSV+PDF,MATRIX
+fnd6_cshtrq,Common Shares Traded - Quarter,Fundamental,Company Fundamental Data for Equity,1156,344,CSV,MATRIX
+fnd6_newqeventv110_pstknq,Preferred/Preference Stock - Nonredeemable,Fundamental,Company Fundamental Data for Equity,1153,781,CSV,VECTOR
+fnd6_optex,Options Exercisable (000),Fundamental,Company Fundamental Data for Equity,1147,383,CSV,MATRIX
+pv13_rha2_min5_sector,grouping fields,Price Volume,Relationship Data for Equity,1142,588,CSV,GROUP
+news_high_exc_stddev,"(EODHigh - TONLast)/StdDev, where StdDev is one standard deviation for the close price for 30 calendar days",News,US News Data,1130,416,CSV,MATRIX
+pcr_oi_1080,Ratio of put open interest to call open interest on a stock's options with expiration 1080 days in the future.,Option,Options Analytics,1121,531,CSV,MATRIX
+rp_ess_mna,Event sentiment score of mergers and acquisitions-related news,News,Ravenpack News Data,1118,516,CSV+PDF,MATRIX
+fnd6_newa1v1300_dltt,Long-Term Debt - Total,Fundamental,Company Fundamental Data for Equity,1102,903,CSV,MATRIX
+pv13_h_min2_focused_sector,Grouping fields for top 200,Price Volume,Relationship Data for Equity,1099,559,CSV,GROUP
+news_mins_5_chg,The minimum of L or S above for 5-minute bucket,News,US News Data,1092,310,CSV,MATRIX
+fnd6_newa2v1300_oiadp,Operating Income After Depreciation,Fundamental,Company Fundamental Data for Equity,1091,636,CSV,MATRIX
+rp_css_revenue,Composite sentiment score of revenue news,News,Ravenpack News Data,1080,504,CSV,MATRIX
+systematic_risk_last_60_days,Systematic Risk Last 60 Days,Model,Systematic Risk Metrics,1069,644,CSV,MATRIX
+fnd6_sstk,Sale of Common and Preferred Stock,Fundamental,Company Fundamental Data for Equity,1068,380,CSV,MATRIX
+fnd6_fic,identifies the country in which the company is incorporated or legally registered,Fundamental,Company Fundamental Data for Equity,1065,475,CSV,MATRIX
+pv13_h_min22_1000_sector,Grouping fields for top 1000,Price Volume,Relationship Data for Equity,1060,388,CSV,GROUP
+unsystematic_risk_last_30_days,Unsystematic Risk Last 30 Days - Relative to SPY,Model,Systematic Risk Metrics,1059,405,CSV,MATRIX
+fnd6_newqeventv110_prcraq,Repurchase Price - Average per share,Fundamental,Company Fundamental Data for Equity,1056,648,CSV,VECTOR
+fnd6_cptnewqv1300_oiadpq,Operating Income After Depreciation - Quarterly,Fundamental,Company Fundamental Data for Equity,1053,548,CSV,MATRIX
+pcr_oi_90,Ratio of put open interest to call open interest on a stock's options with expiration 90 days in the future.,Option,Options Analytics,1053,381,CSV,MATRIX
+pv13_revere_zipcode,Zip code,Price Volume,Relationship Data for Equity,1052,367,CSV,MATRIX
+anl4_basicconltv110_pu,The number of upper estimations,Analyst,Analyst Estimate Data for Equity,1047,748,CSV,VECTOR
+news_mins_5_pct_up,Number of minutes that elapsed before price went up 5 percentage points,News,US News Data,1043,506,CSV,MATRIX
+implied_volatility_mean_1080,At-the-money option-implied volatility mean for 3 years,Option,Volatility Data,1042,530,CSV,MATRIX
+systematic_risk_last_90_days,Systematic Risk Last 90 Days,Model,Systematic Risk Metrics,1042,585,CSV,MATRIX
+fnd6_newa1v1300_dlc,Debt in Current Liabilities - Total,Fundamental,Company Fundamental Data for Equity,1041,635,CSV,MATRIX
+news_eod_vwap,Volume weighted average price between the time of news and the end of the session,News,US News Data,1031,566,CSV,MATRIX
+news_max_dn_ret,Percent change from the price at the time of the news to the after the news low,News,US News Data,1028,494,CSV,MATRIX
+fnd6_dc,Deferred Charges,Fundamental,Company Fundamental Data for Equity,1025,266,CSV,MATRIX
+fnd6_xad,Advertising Expense,Fundamental,Company Fundamental Data for Equity,1007,469,CSV,MATRIX
+fnd6_newqv1300_intanoq,Other Intangibles,Fundamental,Company Fundamental Data for Equity,1003,209,CSV,MATRIX
+news_session_range_pct,(Session High Price - Session Low Price) / Session Low Price.,News,US News Data,661,402,PDF,MATRIX
+nws12_prez_5p,The minimum of L or S above for 5-minute bucket,News,US News Data,577,426,PDF,VECTOR
+nws12_prez_provider,index of name of the news provider,News,US News Data,550,248,PDF,VECTOR
+pv13_revere_level,Level of the sector within the hierarchy,Price Volume,Relationship Data for Equity,545,322,PDF,MATRIX
+scl12_alltype_sentvec,sentiment,Social Media,Sentiment Data for Equity,500,269,PDF,VECTOR
+scl12_alltype_typevec,instrument type index,Social Media,Sentiment Data for Equity,427,217,PDF,VECTOR
+rp_nip_mna,News impact projection of mergers and acquisitions-related news,News,Ravenpack News Data,424,176,PDF,MATRIX
+pv13_revere_parent,Code of parent sector,Price Volume,Relationship Data for Equity,407,295,PDF,MATRIX
+nws12_prez_result2,Percent change between the price at the time of the news release to the price at the close of the session,News,US News Data,319,241,PDF,VECTOR
+anl4_dez1afv4_est,Estimation value,Analyst,Analyst Estimate Data for Equity,173,126,PDF,VECTOR
+nws12_mainz_4s,Number of minutes that elapsed before price went down 4 percentage points,News,US News Data,164,106,PDF,VECTOR
+nws12_prez_prevday,Percent change between the previous day's open and close,News,US News Data,126,79,PDF,VECTOR
+anl4_basicconltv110_median,Median of estimations,Analyst,Analyst Estimate Data for Equity,106,62,PDF,VECTOR
+nws12_prez_1l,Number of minutes that elapsed before price went up 1 percentage point,News,US News Data,105,82,PDF,VECTOR
+nws12_mainz_atrratio,Ratio of Today Range to 20-day average true range,News,US News Data,84,36,PDF,VECTOR
+nws12_prez_curr_vol,Current day's session volume,News,US News Data,59,49,PDF,VECTOR
+nws12_mainz_result1,Percent change between the price at the time of the news release and the price at the close of the session,News,US News Data,49,15,PDF,VECTOR
+nws12_prez_90_min,The percent change in price in the first 90 minutes following the news release,News,US News Data,39,35,PDF,VECTOR
+nws12_prez_120_min,The percent change in price in the first 120 minutes following the news release,News,US News Data,34,30,PDF,VECTOR

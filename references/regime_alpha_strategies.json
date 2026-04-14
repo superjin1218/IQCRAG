@@ -1,0 +1,74 @@
+[
+  {
+    "id": "adaptive_reversion_momentum",
+    "name": "Adaptive Reversion-Momentum",
+    "description": "고변동성 시 리버전, 저변동성 시 모멘텀으로 자동 전환",
+    "regime_proxy": "ts_std_dev(returns,20) > ts_mean(ts_std_dev(returns,20),252) + {vol_k}*ts_std_dev(ts_std_dev(returns,20),252)",
+    "regime_type": "volatility",
+    "preferred_datasets": ["pv1", "fundamental2"],
+    "core_operators": ["if_else", "rank", "ts_delta", "ts_decay_linear", "ts_std_dev", "ts_zscore"],
+    "alpha_high_regime": "rank(-ts_zscore({field}, 20))",
+    "alpha_low_regime": "rank(ts_decay_linear({field}, 20))",
+    "template_pattern": "if_else(ts_std_dev(returns,{short_window}) > ts_mean(ts_std_dev(returns,{short_window}),{long_window}) + {vol_k}*ts_std_dev(ts_std_dev(returns,{short_window}),{long_window}), {alpha_reversion}, {alpha_momentum})"
+  },
+  {
+    "id": "volume_conditional_trend",
+    "name": "Volume-Conditional Trend",
+    "description": "거래량 급증 시 트렌드 팔로우, 평상시 평균회귀",
+    "regime_proxy": "ts_mean(volume, 5) > ts_mean(volume, 20)",
+    "regime_type": "volume",
+    "preferred_datasets": ["pv1", "analyst4"],
+    "core_operators": ["trade_when", "rank", "ts_zscore", "ts_mean", "ts_delta"],
+    "alpha_high_regime": "rank(ts_delta({field}, 5))",
+    "alpha_low_regime": "rank(-ts_zscore({field}, 20))",
+    "template_pattern": "if_else(ts_mean(volume, 5) > ts_mean(volume, 20), {alpha_trend}, {alpha_reversion})"
+  },
+  {
+    "id": "drawdown_defensive_value",
+    "name": "Drawdown-Defensive Value",
+    "description": "하락 추세 시 방어적 밸류, 상승 시 그로스 전략",
+    "regime_proxy": "ts_mean(returns, 10) < 0",
+    "regime_type": "trend",
+    "preferred_datasets": ["fundamental6", "pv1"],
+    "core_operators": ["if_else", "rank", "ts_mean", "divide"],
+    "alpha_high_regime": "rank(ts_mean({field}, 60))",
+    "alpha_low_regime": "rank(ts_delta({field}, 10))",
+    "template_pattern": "if_else(ts_mean(returns, 10) < 0, {alpha_defensive}, {alpha_growth})"
+  },
+  {
+    "id": "multi_regime_nested",
+    "name": "Multi-Regime Nested",
+    "description": "변동성-추세 다중 레짐 중첩 분기",
+    "regime_proxy": "nested: volatility + trend",
+    "regime_type": "nested",
+    "preferred_datasets": ["pv1", "model16"],
+    "core_operators": ["if_else", "rank", "ts_regression", "ts_std_dev", "ts_mean"],
+    "alpha_high_vol": "rank(-ts_zscore({field}, 20))",
+    "alpha_uptrend": "rank(ts_decay_linear({field}, 20))",
+    "alpha_downtrend": "rank(ts_mean({field}, 60))",
+    "template_pattern": "if_else(ts_std_dev(returns,{short_window}) > ts_mean(ts_std_dev(returns,{short_window}),{long_window}) + {vol_k}*ts_std_dev(ts_std_dev(returns,{short_window}),{long_window}), {alpha_high_vol}, if_else(ts_mean(returns, 10) > 0, {alpha_uptrend}, {alpha_downtrend}))"
+  },
+  {
+    "id": "volatility_scaled_alpha",
+    "name": "Volatility-Scaled Alpha",
+    "description": "변동성 역수로 알파 스케일링 (저변동 종목 선호)",
+    "regime_proxy": "implicit: 1/ts_std_dev scaling",
+    "regime_type": "scaling",
+    "preferred_datasets": ["pv1", "option8"],
+    "core_operators": ["divide", "rank", "ts_mean", "ts_std_dev", "inverse"],
+    "alpha_base": "rank({field})",
+    "template_pattern": "rank(divide({alpha_base}, add(1, ts_std_dev(returns, {short_window}))))"
+  },
+  {
+    "id": "conditional_neutralized",
+    "name": "Conditional Neutralized",
+    "description": "섹터별 조건 분기 후 섹터 중립화",
+    "regime_proxy": "ts_mean(volume, 5) > ts_mean(volume, 20)",
+    "regime_type": "volume_sectoral",
+    "preferred_datasets": ["fundamental2", "analyst4"],
+    "core_operators": ["group_neutralize", "trade_when", "rank", "if_else"],
+    "alpha_active": "rank({field})",
+    "alpha_neutral": "group_neutralize(rank({field}), sector)",
+    "template_pattern": "group_neutralize(if_else(ts_mean(volume, 5) > ts_mean(volume, 20), rank({field_a}), rank(-ts_zscore({field_b}, 20))), sector)"
+  }
+]
