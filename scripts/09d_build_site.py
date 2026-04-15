@@ -1360,7 +1360,7 @@ DETAIL_JS = r"""
 """
 
 
-GROUP_THRESHOLDS = [0.10, 0.25, 0.35, 0.50]
+GROUP_THRESHOLDS = [0.10, 0.25, 0.35, 0.50, 0.70, 0.80, 0.90]
 
 
 def _label_group(members: list[dict]) -> str:
