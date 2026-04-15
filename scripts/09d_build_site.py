@@ -511,6 +511,97 @@ table.neighbors tbody td .cat {
   background: var(--bg-hover);
   border-color: var(--accent);
 }
+.groups-slider {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 16px 20px 14px 20px;
+  margin-bottom: 12px;
+}
+.groups-slider .slider-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.groups-slider .slider-label {
+  color: var(--text-mute);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.groups-slider .slider-value {
+  color: var(--accent);
+  font-size: 26px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  min-width: 70px;
+}
+.groups-slider .slider-count {
+  margin-left: auto;
+  color: var(--text-mute);
+  font-size: 11px;
+}
+.groups-slider .slider-count b {
+  color: var(--text-hi);
+  font-weight: 500;
+  margin-right: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.groups-slider .slider-range {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  height: 24px;
+  cursor: pointer;
+  display: block;
+}
+.groups-slider .slider-range::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(to right, var(--text-mute), var(--accent));
+  border-radius: 2px;
+}
+.groups-slider .slider-range::-moz-range-track {
+  height: 4px;
+  background: linear-gradient(to right, var(--text-mute), var(--accent));
+  border-radius: 2px;
+  border: none;
+}
+.groups-slider .slider-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text-hi);
+  border: 2px solid var(--accent);
+  margin-top: -7px;
+  cursor: grab;
+  box-shadow: 0 0 0 3px rgba(107, 209, 255, 0.15);
+  transition: transform 0.1s;
+}
+.groups-slider .slider-range:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.15);
+}
+.groups-slider .slider-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text-hi);
+  border: 2px solid var(--accent);
+  cursor: grab;
+  box-shadow: 0 0 0 3px rgba(107, 209, 255, 0.15);
+}
+.groups-slider .slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  color: var(--text-mute);
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+}
+
 .groups-tabs {
   display: flex;
   gap: 8px;
@@ -872,6 +963,34 @@ MAIN_JS = r"""
       explain.textContent = 'pick minimum combined correlation — lower = fewer / larger groups, higher = more / tighter groups';
       header.appendChild(explain);
 
+      // threshold slider
+      const thresholds = Object.keys(groupsData).sort(function(a, b) {
+        return parseFloat(a) - parseFloat(b);
+      });
+      if (thresholds.indexOf(groupsThreshold) === -1) {
+        // 기본값이 없으면 중간값 근처로
+        groupsThreshold = thresholds[Math.floor(thresholds.length / 2)] || thresholds[0];
+      }
+      const currentIdx = thresholds.indexOf(groupsThreshold);
+      const currentCount = (groupsData[groupsThreshold] || []).length;
+
+      const sliderWrap = document.createElement('div');
+      sliderWrap.className = 'groups-slider';
+      sliderWrap.innerHTML =
+        '<div class="slider-top">' +
+          '<span class="slider-label">min combined ≥</span>' +
+          '<span class="slider-value" id="grp-thr-val">' + groupsThreshold + '</span>' +
+          '<span class="slider-count"><b id="grp-count">' + currentCount + '</b> groups</span>' +
+        '</div>' +
+        '<input type="range" class="slider-range" id="grp-slider" ' +
+          'min="0" max="' + (thresholds.length - 1) + '" step="1" value="' + currentIdx + '">' +
+        '<div class="slider-ticks">' +
+          '<span>' + thresholds[0] + '</span>' +
+          '<span>' + thresholds[Math.floor(thresholds.length / 2)] + '</span>' +
+          '<span>' + thresholds[thresholds.length - 1] + '</span>' +
+        '</div>';
+      header.appendChild(sliderWrap);
+
       // export CSV
       const exportBar = document.createElement('div');
       exportBar.className = 'groups-export';
@@ -882,30 +1001,30 @@ MAIN_JS = r"""
         '<button class="ex-btn" id="grp-export">⬇ download CSV</button>';
       header.appendChild(exportBar);
 
-      // threshold tabs
-      const tabs = document.createElement('div');
-      tabs.className = 'groups-tabs';
-      const thresholds = Object.keys(groupsData).sort();
-      thresholds.forEach(function(t) {
-        const btn = document.createElement('button');
-        btn.className = 'groups-tab' + (t === groupsThreshold ? ' active' : '');
-        const count = groupsData[t].length;
-        btn.innerHTML = '<span class="t">≥ ' + t + '</span><span class="c">' + count + ' groups</span>';
-        btn.addEventListener('click', function() {
-          groupsThreshold = t;
-          groupsExpanded = null;
-          render();
-        });
-        tabs.appendChild(btn);
-      });
-      header.appendChild(tabs);
       panel.appendChild(header);
 
-      // group list
+      // slider 이벤트 — live update 없이 group list 만 다시 그림
+      const sliderEl = sliderWrap.querySelector('#grp-slider');
+      const thrValEl = sliderWrap.querySelector('#grp-thr-val');
+      const countEl = sliderWrap.querySelector('#grp-count');
+      sliderEl.addEventListener('input', function() {
+        const idx = parseInt(sliderEl.value, 10);
+        groupsThreshold = thresholds[idx];
+        groupsExpanded = null;
+        thrValEl.textContent = groupsThreshold;
+        countEl.textContent = (groupsData[groupsThreshold] || []).length;
+        renderList();
+      });
+
+      // group list 컨테이너
       const list = document.createElement('div');
       list.className = 'groups-list';
-      const groups = groupsData[groupsThreshold] || [];
-      groups.forEach(function(g) {
+      panel.appendChild(list);
+
+      function renderList() {
+        list.innerHTML = '';
+        const groups = groupsData[groupsThreshold] || [];
+        groups.forEach(function(g) {
         const row = document.createElement('div');
         row.className = 'group-row' + (groupsExpanded === g.id ? ' expanded' : '');
 
@@ -913,7 +1032,7 @@ MAIN_JS = r"""
         head.className = 'group-head';
         head.addEventListener('click', function() {
           groupsExpanded = (groupsExpanded === g.id) ? null : g.id;
-          render();
+          renderList();
         });
 
         const arrow = document.createElement('span');
@@ -1014,9 +1133,10 @@ MAIN_JS = r"""
           row.appendChild(body);
         }
 
-        list.appendChild(row);
-      });
-      panel.appendChild(list);
+          list.appendChild(row);
+        });
+      }  // end renderList
+      renderList();
 
       // export CSV handler
       const exportBtn = panel.querySelector('#grp-export');
@@ -1360,7 +1480,7 @@ DETAIL_JS = r"""
 """
 
 
-GROUP_THRESHOLDS = [0.10, 0.25, 0.35, 0.50, 0.70, 0.80, 0.90]
+GROUP_THRESHOLDS = [round(0.05 * i, 2) for i in range(1, 20)]  # 0.05 ~ 0.95, 0.05 단위
 
 
 def _label_group(members: list[dict]) -> str:
