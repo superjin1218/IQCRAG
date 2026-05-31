@@ -155,8 +155,42 @@ def log_line(step: str, msg: str) -> None:
 
 # ── WQB 클라이언트 로더 (기존 wqb_simulator 재사용) ──────────────────────────
 
-def make_wqb_client(config: Dict[str, Any]):
-    """기존 new_quant/scripts/wqb_simulator.py 의 WQBSimulatorClient 를 로드한다."""
+def _parse_env_file(env_path: Path) -> Dict[str, str]:
+    """단순 KEY=VALUE env 파일 파서 (주석/빈줄/공백 처리)."""
+    out: Dict[str, str] = {}
+    if not env_path.exists():
+        return out
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        s = line.strip()
+        if not s or s.startswith("#"):
+            continue
+        if "=" not in s:
+            continue
+        k, v = s.split("=", 1)
+        k = k.strip()
+        v = v.strip()
+        # 따옴표 제거
+        if len(v) >= 2 and ((v[0] == v[-1] == '"') or (v[0] == v[-1] == "'")):
+            v = v[1:-1]
+        if k:
+            out[k] = v
+    return out
+
+
+def make_wqb_client(config: Dict[str, Any], account_id: Optional[str] = None):
+    """WQBSimulatorClient 로드. 단일 .env 파일에서 계정별 credentials 추출.
+
+    Env 스키마 (config.wqb.env_file 단일 파일):
+      WQ_EMAIL_A1, WQ_PASSWORD_A1
+      WQ_EMAIL_A2, WQ_PASSWORD_A2
+      ... (a3, a4 동일 패턴)
+      WQ_BASE_URL (옵션, 모든 계정 공유)
+
+    - account_id="a1" → WQ_EMAIL_A1 / WQ_PASSWORD_A1 을 WQ_EMAIL / WQ_PASSWORD 로 주입 후 인증
+    - account_id=None → WQ_EMAIL / WQ_PASSWORD 그대로 (레거시 단일 계정 모드)
+
+    process 단위로 os.environ 을 override 하므로 워커 프로세스 간 cred 간섭 없음.
+    """
     try:
         from wqb_simulator import WQBSimulatorClient  # type: ignore
     except ImportError as e:
@@ -167,6 +201,34 @@ def make_wqb_client(config: Dict[str, Any]):
 
     env_file = config["wqb"].get("env_file", "../.env")
     env_path = resolve_path(env_file)
+    if not env_path.exists():
+        raise FileNotFoundError(
+            f"env 파일을 찾을 수 없습니다: {env_path}\n"
+            f"템플릿을 복사해서 채우세요: cp ../.env.example ../.env"
+        )
+
+    env_vars = _parse_env_file(env_path)
+
+    if account_id:
+        sfx = account_id.upper()
+        email_key = f"WQ_EMAIL_{sfx}"
+        pw_key = f"WQ_PASSWORD_{sfx}"
+        email = env_vars.get(email_key) or os.environ.get(email_key, "")
+        password = env_vars.get(pw_key) or os.environ.get(pw_key, "")
+        if not email or not password:
+            raise ValueError(
+                f"{email_key}/{pw_key} 가 {env_path} 또는 환경변수에서 발견되지 않음. "
+                f"account_id={account_id!r}"
+            )
+        # 같은 프로세스의 다음 from_env 호출이 우리가 주입한 값을 읽도록 강제 (overwrite).
+        os.environ["WQ_EMAIL"] = email
+        os.environ["WQ_PASSWORD"] = password
+    # else: 레거시 — env 파일에 WQ_EMAIL/WQ_PASSWORD 가 직접 있어야 함
+
+    # 공통 옵션 (있으면 setdefault)
+    if env_vars.get("WQ_BASE_URL"):
+        os.environ.setdefault("WQ_BASE_URL", env_vars["WQ_BASE_URL"])
+
     client = WQBSimulatorClient.from_env(env_file=str(env_path))
     client.authenticate()
     return client

@@ -5,8 +5,11 @@ __pycache__/
 .DS_Store
 .env
 .env.local
+!.env.example
 *.bak_*
 data/_archive/
 data/chroma_db/
 data/*_s[0-9].jsonl
 output/site/
+data_v2/
+*.npy

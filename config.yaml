@@ -51,13 +51,24 @@ representative:
   alphacount_weight: 0.3        # log alphaCount 가중
   tie_break: alphacount         # 동점 시 alphaCount 큰 것
 
-# Probe Alpha
+# Probe Alpha (v2: type-dispatch + backfill 252)
 probe:
-  # subtract: rank(X) - rank(Y) — 유사도 측정 (유사 → 작음)
-  # add:      rank(X) + rank(Y) — 결합 효과 측정
+  # 사용자가 제공: 필수 컬럼 field_id, type, description
+  field_list_file: ../references/fields_v2.csv
+  backfill_window: 252
+  # 타입별 수식 템플릿 ({fid} = field_id, {bw} = backfill_window)
+  templates:
+    MATRIX:         "rank(ts_backfill({fid}, {bw}))"
+    VECTOR_NUMERIC: "rank(vec_avg(ts_backfill({fid}, {bw})))"
+  # VECTOR 중 카테고리형 (enum/식별자)은 vec_avg가 의미 없으므로 skip
+  vector_skip_suffixes: ["_item", "_bk", "_person", "_ratingvalue", "_ticker", "_isin", "_cusip"]
+  vector_skip_keywords: ["financial item", "identifier", "ticker", "isin", "cusip", "person", "book"]
+  # alpha 출력 불가 타입
+  skip_types: ["GROUP", "UNIVERSE", "SYMBOL"]
+
+  # 레거시 (pair-probe; 사용 안 함)
   template: subtract
-  lookback: 20                  # ts_backfill lookback
-  # 수식 템플릿 (X, Y 자리는 {x}, {y})
+  lookback: 20
   subtract_expr: "subtract(rank(ts_backfill({x}, 20)), rank(ts_backfill({y}, 20)))"
   add_expr: "add(rank(ts_backfill({x}, 20)), rank(ts_backfill({y}, 20)))"
 
@@ -90,5 +101,25 @@ wqb:
   decay: 4
   neutralization: SUBINDUSTRY
   truncation: 0.08
+  nan_handling: "ON"
   max_wait_sec: 600
+  # 단일 env 파일에 4계정 credentials 모두 보관:
+  #   WQ_EMAIL_A1, WQ_PASSWORD_A1
+  #   WQ_EMAIL_A2, WQ_PASSWORD_A2
+  #   (a3, a4 도 같은 패턴)
+  # 레거시 단일계정 모드(--account 미지정)는 WQ_EMAIL / WQ_PASSWORD 사용.
   env_file: ../.env
+
+# 멀티 계정 (계정당 max_concurrent 만큼 OS 프로세스 fan-out)
+accounts:
+  default_max_concurrent: 3
+  list:
+    - id: a1
+      max_concurrent: 3
+    - id: a2
+      max_concurrent: 3
+    # 나중에 a3/a4 추가 시 .env 에 WQ_EMAIL_A3/A4, WQ_PASSWORD_A3/A4 채우고 아래 주석 해제:
+    # - id: a3
+    #   max_concurrent: 3
+    # - id: a4
+    #   max_concurrent: 3
