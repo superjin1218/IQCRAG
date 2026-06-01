@@ -217,82 +217,108 @@ def main():
         json.dumps(umap_list, separators=(",", ":")),
         encoding="utf-8")
 
-    # ── groups.json ───────────────────────────────────────────────────
-    # 4-threshold cluster cards + cluster heatmap
-    print("[14] building groups ...")
-    cluster_members = defaultdict(list)
-    for fid, cid in clusters.items():
-        cluster_members[int(cid)].append(fid)
-    cluster_ids = sorted([c for c in cluster_members if c != -1])
+    # ── groups.json (v1-style: Agglomerative complete linkage) ────────
+    # Every field gets assigned to a group at every threshold — no noise.
+    # distance = 1 − |corr|, distance threshold = 1 − corr_threshold.
+    print("[14] building groups (Agglomerative complete linkage)...")
+    from scipy.cluster.hierarchy import linkage, fcluster
+    from scipy.spatial.distance import squareform
 
-    # cluster heatmap (cluster × cluster mean |r|)
-    means = np.zeros((len(cluster_ids), len(cluster_ids)), dtype=np.float32)
-    cluster_idx = {c: i for i, c in enumerate(cluster_ids)}
-    for ci, ca in enumerate(cluster_ids):
-        ia = [id2i[f] for f in cluster_members[ca] if f in id2i]
-        for cj, cb in enumerate(cluster_ids):
-            ib = [id2i[f] for f in cluster_members[cb] if f in id2i]
+    dist = (1.0 - abs_corr).astype(np.float64)
+    np.fill_diagonal(dist, 0.0)
+    dist = np.clip((dist + dist.T) / 2, 0.0, 1.0)
+    dist_condensed = squareform(dist, checks=False)
+    Z = linkage(dist_condensed, method="complete")
+    print(f"     linkage done ({Z.shape[0]} merges)")
+
+    THRESHOLDS = ["0.10", "0.25", "0.35", "0.50"]
+    node_by_id = {n["id"]: n for n in nodes}
+
+    def fitness_of(fid):
+        n = node_by_id.get(fid) or {}
+        v = n.get("fitness")
+        return -1e18 if v is None else v
+
+    def sharpe_of(fid):
+        n = node_by_id.get(fid) or {}
+        v = n.get("sharpe")
+        return v if v is not None else 0.0
+
+    def dataset_of(fid):
+        n = node_by_id.get(fid) or {}
+        return n.get("dataset", "")
+
+    by_threshold = {}
+    partitions = {}     # thr_str → {field_id → group_id (str)}
+    for thr_str in THRESHOLDS:
+        thr = float(thr_str)
+        labels = fcluster(Z, t=(1.0 - thr), criterion="distance")
+        # group members
+        groups_map = defaultdict(list)
+        for fid, lab in zip(ids, labels.tolist()):
+            groups_map[int(lab)].append(fid)
+        # sort groups by size desc; dense rename G001, G002, ...
+        ordered = sorted(groups_map.items(), key=lambda kv: -len(kv[1]))
+        cards = []
+        member_lookup = {}
+        for new_id, (_, members) in enumerate(ordered, 1):
+            gid = f"G{new_id:03d}"
+            # members sorted by fitness desc — this is the order used by CSV export
+            members_sorted = sorted(members, key=lambda f: -fitness_of(f))
+            # member assignment lookup (for nodes.cluster patch later)
+            for f in members:
+                member_lookup[f] = gid
+            # dominant dataset
+            ds_count = Counter(dataset_of(f) for f in members)
+            top_ds = ds_count.most_common(1)[0][0] if ds_count else ""
+            # mean sharpe over members
+            mean_sharpe = float(np.mean([sharpe_of(f) for f in members]))
+            cards.append({
+                "id": gid,
+                "n": len(members),
+                "mean_sharpe": mean_sharpe,
+                "top_dataset": top_ds,
+                "sample_fields": members_sorted[:6],
+                # FULL ordered member list — site CSV export uses this directly
+                "members": members_sorted,
+            })
+        by_threshold[thr_str] = cards
+        partitions[thr_str] = member_lookup
+        print(f"     thr={thr_str}  groups={len(cards):,}  largest={cards[0]['n'] if cards else 0}")
+
+    # ── cluster heatmap (top-50 groups at 0.35) ────────────────────
+    top_cards = sorted(by_threshold["0.35"], key=lambda c: -c["n"])[:50]
+    top_ids = [c["id"] for c in top_cards]
+    M = np.zeros((len(top_ids), len(top_ids)), dtype=np.float32)
+    for i, ci in enumerate(top_cards):
+        ia = [id2i[f] for f in ci["members"] if f in id2i]
+        for j, cj in enumerate(top_cards):
+            ib = [id2i[f] for f in cj["members"] if f in id2i]
             if not ia or not ib: continue
             sub = abs_corr[np.ix_(ia, ib)]
-            means[ci, cj] = float(sub.mean())
-    cluster_labels = [f"C{c}" for c in cluster_ids]
+            M[i, j] = float(sub.mean())
 
-    # per-threshold cards (largest clusters first)
-    def cards_for_threshold(thr: float):
-        out_cards = []
-        for cid in sorted(cluster_ids, key=lambda c: -len(cluster_members[c])):
-            members = cluster_members[cid]
-            if len(members) < 3:
-                continue
-            # mean abs corr within cluster (use as "density" — proxy for threshold)
-            idx = [id2i[f] for f in members if f in id2i]
-            sub = abs_corr[np.ix_(idx, idx)]
-            mean_r = float(sub.mean())
-            if mean_r < thr:
-                continue
-            # mean sharpe + dominant dataset
-            shar = np.mean([
-                next((n["sharpe"] for n in nodes if n["id"] == f), 0) or 0
-                for f in members[:20]
-            ])
-            ds_count = Counter()
-            for f in members:
-                node = next((n for n in nodes if n["id"] == f), None)
-                if node and node["dataset"]:
-                    ds_count[node["dataset"]] += 1
-            top_ds = ds_count.most_common(1)[0][0] if ds_count else ""
-            # sample fields (highest sharpe first)
-            member_sharpe = [
-                (f, next((n["sharpe"] for n in nodes if n["id"] == f), 0) or 0)
-                for f in members
-            ]
-            member_sharpe.sort(key=lambda x: -abs(x[1] or 0))
-            out_cards.append({
-                "id": f"C{cid}",
-                "n": len(members),
-                "mean_sharpe": float(shar),
-                "top_dataset": top_ds,
-                "sample_fields": [f for f, _ in member_sharpe[:6]],
-                "density": mean_r,
-            })
-        return out_cards
+    # ── patch nodes.cluster to the 0.35 group id (G001 etc) ────────
+    p035 = partitions["0.35"]
+    for n in nodes:
+        n["cluster"] = p035.get(n["id"], "")
+    # rewrite nodes.json with updated cluster ids
+    (out / "nodes.json").write_text(
+        json.dumps(nodes, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8")
 
-    groups = {
-        "by_threshold": {
-            "0.10": cards_for_threshold(0.10),
-            "0.25": cards_for_threshold(0.25),
-            "0.35": cards_for_threshold(0.35),
-            "0.50": cards_for_threshold(0.50),
-        },
+    groups_out = {
+        "by_threshold": by_threshold,
         "cluster_heatmap": {
-            "labels": cluster_labels,
-            "matrix": means.tolist(),
+            "labels": top_ids,
+            "matrix": M.tolist(),
         },
     }
     (out / "groups.json").write_text(
-        json.dumps(groups, separators=(",", ":")),
+        json.dumps(groups_out, separators=(",", ":")),
         encoding="utf-8")
-    print(f"[14] groups.json · clusters={len(cluster_ids)}")
+    print(f"[14] groups.json · top thr=0.35 groups={len(by_threshold['0.35']):,}  "
+          f"heatmap labels={len(top_ids)}")
 
     # ── datasets.json ─────────────────────────────────────────────────
     ds_names = {
